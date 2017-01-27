@@ -9,7 +9,7 @@ import byui.cit260.lastOfUs.model.Player;
 
 /**
  *
- * @author Família Haitmann
+ * @author Survivors of Brazil
  */
 public class LastOfUsGame {
 

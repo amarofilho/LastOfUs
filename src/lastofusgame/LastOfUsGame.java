@@ -5,6 +5,8 @@
  */
 package lastofusgame;
 
+import byui.cit260.lastOfUs.model.Player;
+
 /**
  *
  * @author Família Haitmann
@@ -15,7 +17,14 @@ public class LastOfUsGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Diogo Haitmann");
+        playerOne.setGender("Male");
+        playerOne.setAge(29);
+        
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
     }
     
 }

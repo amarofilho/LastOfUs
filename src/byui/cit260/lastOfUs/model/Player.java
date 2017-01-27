@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Família Haitmann
+ * @author Survivors of Brazil
  */
 public class Player implements Serializable{
    

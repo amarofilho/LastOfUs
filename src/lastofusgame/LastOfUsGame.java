@@ -5,6 +5,7 @@
  */
 package lastofusgame;
 
+import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Player;
 
 /**
@@ -25,6 +26,17 @@ public class LastOfUsGame {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        Inventory inventoryOne = new Inventory();
+        
+        inventoryOne.setItem("Map");
+        
+        String inventoryInfo = inventoryOne.toString();
+        System.out.println(inventoryInfo);
+             
+        
+        
     }
+    
     
 }

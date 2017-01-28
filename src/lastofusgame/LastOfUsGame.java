@@ -7,6 +7,7 @@ package lastofusgame;
 
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Player;
+import byui.cit260.lastOfUs.model.Scene;
 
 /**
  *
@@ -33,6 +34,17 @@ public class LastOfUsGame {
         
         String inventoryInfo = inventoryOne.toString();
         System.out.println(inventoryInfo);
+        
+        Scene sceneOne = new Scene();
+        
+        sceneOne.setName("Room");
+        sceneOne.setType("First");
+        sceneOne.setDescription("InsideHospital");
+        
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
+        
+        
              
         
         

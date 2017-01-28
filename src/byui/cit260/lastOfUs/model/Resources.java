@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author AmaroIdelfonso
+ * @author Survivors of Brazil
  */
 public class Resources implements Serializable{
     

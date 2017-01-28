@@ -5,6 +5,9 @@
  */
 package lastofusgame;
 
+import byui.cit260.lastOfUs.model.Actor;
+import byui.cit260.lastOfUs.model.Ally;
+import byui.cit260.lastOfUs.model.Enemy;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
@@ -29,14 +32,34 @@ public class LastOfUsGame {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+    /**------------------------------------------------------------------*/    
+        Ally allyOne = new Ally();
         
+        allyOne.setName("John Smith");
+        allyOne.setGender("Male");
+        allyOne.setDescription("A good LDS man, 30 year old from Saint George. He is probably the key to stop the virus!!");
+        allyOne.setAction("He's going to Rexburg, find him and help him get there safe!!");
+        
+        String allyOneInfo = allyOne.toString();
+        System.out.println(allyOneInfo);
+    /**------------------------------------------------------------------*/        
+        Enemy enemyOne = new Enemy();
+        
+        enemyOne.setName("Governor Boggs");
+        enemyOne.setGender("Male");
+        enemyOne.setDescription("An evil man, 44 year old from Missouri. He'll kill any LDS he finds in his way!!");
+        enemyOne.setAction("He's current surviving at Saint George. He suddenly found you at a gun store and is going to talk to you.");
+        
+        String enemyOneInfo = enemyOne.toString();
+        System.out.println(enemyOneInfo);
+    /**------------------------------------------------------------------*/       
         Inventory inventoryOne = new Inventory();
         
         inventoryOne.setItem("Map");
         
         String inventoryInfo = inventoryOne.toString();
         System.out.println(inventoryInfo);
-        
+    /**------------------------------------------------------------------*/     
         Scene sceneOne = new Scene();
         
         sceneOne.setName("Room");
@@ -45,7 +68,7 @@ public class LastOfUsGame {
         
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
-        
+    /**------------------------------------------------------------------*/     
         Map mapOne = new Map();
         
         mapOne.setCityLocation("Saint George");
@@ -53,7 +76,7 @@ public class LastOfUsGame {
         
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
-        
+    /**------------------------------------------------------------------*/     
         Resources resourcesOne = new Resources();
         
         resourcesOne.setName("tool1");
@@ -63,7 +86,7 @@ public class LastOfUsGame {
         
         String resourcesInfo = resourcesOne.toString();
         System.out.println(resourcesInfo);
-        
+    /**------------------------------------------------------------------*/     
         
         
     }

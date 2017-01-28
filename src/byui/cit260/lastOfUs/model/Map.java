@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author AmaroIdelfonso
+ * @author Survivors of Brasil
  */
 public class Map implements Serializable{
     

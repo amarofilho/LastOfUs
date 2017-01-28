@@ -8,6 +8,7 @@ package lastofusgame;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
+import byui.cit260.lastOfUs.model.Resources;
 import byui.cit260.lastOfUs.model.Scene;
 
 /**
@@ -52,7 +53,17 @@ public class LastOfUsGame {
         
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
-             
+        
+        Resources resourcesOne = new Resources();
+        
+        resourcesOne.setName("tool1");
+        resourcesOne.setType("tool2");
+        resourcesOne.setStatus("tool3");
+        resourcesOne.setQuantity(05);
+        
+        String resourcesInfo = resourcesOne.toString();
+        System.out.println(resourcesInfo);
+        
         
         
     }

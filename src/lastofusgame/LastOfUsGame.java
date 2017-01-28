@@ -6,6 +6,7 @@
 package lastofusgame;
 
 import byui.cit260.lastOfUs.model.Inventory;
+import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
 import byui.cit260.lastOfUs.model.Scene;
 
@@ -44,7 +45,13 @@ public class LastOfUsGame {
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
         
+        Map mapOne = new Map();
         
+        mapOne.setCityLocation("Saint George");
+        mapOne.setSpotLocation("Hospital");
+        
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
              
         
         

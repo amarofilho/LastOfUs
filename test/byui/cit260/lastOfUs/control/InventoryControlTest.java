@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author AmaroIdelfonso
+ * @author Survivors of Brazil
  */
 public class InventoryControlTest {
     

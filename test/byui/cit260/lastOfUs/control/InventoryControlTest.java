@@ -30,7 +30,7 @@ public class InventoryControlTest {
         double result = instance.calcBottlerOfWather(distance, consume);
         assertEquals(expResult, result,0.0001);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }

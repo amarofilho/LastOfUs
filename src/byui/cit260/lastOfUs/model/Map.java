@@ -16,7 +16,7 @@ public class Map implements Serializable{
     
     //class instance variables
     
-    private String cityLocation;
+    private String city;
     private String  spotLocation;
 
     public Map() {
@@ -25,11 +25,11 @@ public class Map implements Serializable{
     
 
     public String getCityLocation() {
-        return cityLocation;
+        return city;
     }
 
     public void setCityLocation(String cityLocation) {
-        this.cityLocation = cityLocation;
+        this.city = cityLocation;
     }
 
     public String getSpotLocation() {
@@ -43,7 +43,7 @@ public class Map implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.cityLocation);
+        hash = 37 * hash + Objects.hashCode(this.city);
         hash = 37 * hash + Objects.hashCode(this.spotLocation);
         return hash;
         
@@ -61,7 +61,7 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (!Objects.equals(this.cityLocation, other.cityLocation)) {
+        if (!Objects.equals(this.city, other.city)) {
             return false;
         }
         if (!Objects.equals(this.spotLocation, other.spotLocation)) {
@@ -72,7 +72,7 @@ public class Map implements Serializable{
 
     @Override
     public String toString() {
-        return "Map{" + "cityLocation=" + cityLocation + ", spotLocation=" + spotLocation + '}';
+        return "Map{" + "city=" + city + ", spotLocation=" + spotLocation + '}';
     }
     
     

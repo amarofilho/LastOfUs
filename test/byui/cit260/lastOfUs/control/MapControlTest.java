@@ -33,5 +33,20 @@ public class MapControlTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
+
+    /**
+     * Test of movePlayerToSpot method, of class MapControl.
+     */
+    @Test
+    public void testMovePlayerToSpot() {
+        System.out.println("movePlayerToSpot");
+        int option = 1;
+        MapControl instance = new MapControl();
+        int expResult = 2;
+        int result = instance.movePlayerToSpot(option);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
     
 }

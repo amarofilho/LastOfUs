@@ -5,11 +5,26 @@
  */
 package byui.cit260.lastOfUs.control;
 
+import byui.cit260.lastOfUs.model.Spot;
+
 /**
  *
  * @author Survivors of Brazil
  */
 public class MapControl {
+    
+    public int movePlayerToSpot( int option){
+        
+        if(option < 1){
+            return -1;
+        }
+        if(option > 2){
+            return -1;
+        }
+        int result = 3 - option;
+        
+        return result;
+    }    
     
     public double calcBuildingHeight(int initialSpeed,double gravitySpeed,int totalTime){
         
@@ -23,4 +38,5 @@ public class MapControl {
         
         return height;
     }
+    
 }

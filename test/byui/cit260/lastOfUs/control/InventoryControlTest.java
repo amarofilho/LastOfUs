@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Survivors of Brazil
+ * @author AmaroIdelfonso
  */
 public class InventoryControlTest {
     
@@ -28,7 +28,7 @@ public class InventoryControlTest {
         InventoryControl instance = new InventoryControl();
         double expResult = -1;
         double result = instance.calcBottlerOfWather(distance, consume);
-        assertEquals(expResult, result,0.0001);
+        assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
         
     }

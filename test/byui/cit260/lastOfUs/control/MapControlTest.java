@@ -10,11 +10,26 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Família Haitmann
+ * @author AmaroIdelfonso and Diogo Haitmann
  */
 public class MapControlTest {
     
     public MapControlTest() {
+    }
+
+    /**
+     * Test of movePlayerToSpot method, of class MapControl.
+     */
+    @Test
+    public void testMovePlayerToSpot() {
+        System.out.println("movePlayerToSpot");
+        int option = 1;
+        MapControl instance = new MapControl();
+        int expResult = 2;
+        int result = instance.movePlayerToSpot(option);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        
     }
 
     /**
@@ -35,15 +50,18 @@ public class MapControlTest {
     }
 
     /**
-     * Test of movePlayerToSpot method, of class MapControl.
+     * Test of calcTrainSpeed method, of class MapControl.
      */
     @Test
-    public void testMovePlayerToSpot() {
-        System.out.println("movePlayerToSpot");
-        int option = 1;
+    public void testCalcTrainSpeed() {
+        System.out.println("calcTrainSpeed");
+        int distance = 1500;
+        int speedUser = -55;
+        int time = 30;
+        int acceleration = 7;
         MapControl instance = new MapControl();
-        int expResult = 2;
-        int result = instance.movePlayerToSpot(option);
+        int expResult = -55;
+        int result = (int) instance.calcTrainSpeed(distance, speedUser, time, acceleration);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         

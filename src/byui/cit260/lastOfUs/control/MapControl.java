@@ -39,4 +39,25 @@ public class MapControl {
         return height;
     }
     
+    
+    public double calcTrainSpeed(int distance, int speedUser, int time, int acceleration){
+        
+        if(distance != 1500){
+            return -1;
+        }
+        if(time != 30){
+            return -1;
+		
+        }
+        if(acceleration != 7){
+            return - 1;
+        }
+	if(speedUser != -55){
+	    return -1;
+        }
+		
+        double initialSpeed = (distance/time) - ((acceleration * time) / 2);
+        
+        return initialSpeed;
+    }
 }

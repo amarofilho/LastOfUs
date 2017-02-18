@@ -9,12 +9,24 @@ import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
 import byui.cit260.lastOfUs.model.Scene;
 import byui.cit260.lastOfUs.model.Spot;
+import lastofusgame.LastOfUsGame;
 
 /**
  *
  * @author Família Haitmann
  */
 public class GameControl {
+
+    public static Player createPlayer(String playersName) {
+        if (playersName == null){
+            return null;
+        }
+        Player player = new Player();
+        player.setName(playersName);
+        
+        LastOfUsGame.setPlayer(player);
+        return player;
+    }
     
     private Player player;
     private Map map;

@@ -5,16 +5,15 @@
  */
 package byui.cit260.lastOfUs.view;
 
-import byui.cit260.lastOfUs.control.GameControl;
+
 import java.util.Scanner;
-import lastofusgame.LastOfUsGame;
+
 
 /**
  *
  * @author AmaroIdelfonso
  */
-public class MainMenuView {
-    
+public class HelpMenuView {
     private String menu;
     
     public void displayMainMenuView() {
@@ -54,18 +53,21 @@ public class MainMenuView {
         choice = choice.toUpperCase();
         
         switch (choice){
-            case "N":
-                this.startNewGame();
-                break;
             case "G":
-                this.startExistingGame();
+                this.gameGoal();
+                break;
+            case "M":
+                this.howMove();
+                break;
+            case "E":
+                this.amoutResources();
                 break;
             case "H":
-                this.displayHelpMenu();
+                this.harvestingResources();
                 break;
-            case "S":
-                this.saveGame();
-                break;
+            case "D":
+                this.deliveringRecources();
+                break;    
             default:
                 System.out.println("\n*** Invalid Selection *** Try again");
                 break;
@@ -73,36 +75,38 @@ public class MainMenuView {
         return false;
     }
         
-    public MainMenuView(){
+    public HelpMenuView(){
         this.menu = "\n"
                   + "\n---------------------------------------------------------"
-                  + "\n|                     Main Menu                         |"
+                  + "\n|                     Getting Help                       |"
                   + "\n---------------------------------------------------------"
-                  + "\nN - Start new game"
-                  + "\nG - Get and start saved game"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save Game"
-                  + "\nQ - Quit"
+                  + "\nG - What is the goal of the game?"
+                  + "\nM - How to move"
+                  + "\nE - Estimating the amount of resources"
+                  + "\nH - Harvesting resources"
+                  + "\nD - Delivering resources to warehouse"
                   + "\n---------------------------------------------------------";
     }
 
-    private void startNewGame() {
-        
-        GameControl.createNewGame(LastOfUsGame.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void gameGoal() {
+        System.out.println("*** Gamegoal function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void howMove() {
+        System.out.println("*** How to move function called ***");
     }
 
-    private void displayHelpMenu() {
-        System.out.println("*** displayHelpMenu function called ***");
-        
-    }    
-    private void saveGame() {
-       System.out.println("*** saveGame function called ***"); 
+    private void amoutResources() {
+        System.out.println("*** Estimating the amount of resources called ***");
     }
+
+    private void harvestingResources() {
+       System.out.println("*** harvesting Resources function called ***"); 
+    }
+    
+    private void deliveringRecources() {
+       System.out.println("*** Delivering resources to warehouse function called ***"); 
+    }
+
+    
 }

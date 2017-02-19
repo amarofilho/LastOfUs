@@ -27,6 +27,10 @@ public class GameControl {
         LastOfUsGame.setPlayer(player);
         return player;
     }
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** CreateNewGame stub function called ***");
+    }
     
     private Player player;
     private Map map;

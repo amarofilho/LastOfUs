@@ -76,7 +76,8 @@ public class HelpMenuView {
     }
         
     public HelpMenuView(){
-        this.menu = "\n"
+        this.menu = "\n"            
+                
                   + "\n---------------------------------------------------------"
                   + "\n|                     Getting Help                       |"
                   + "\n---------------------------------------------------------"

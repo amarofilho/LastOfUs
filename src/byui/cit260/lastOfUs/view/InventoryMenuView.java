@@ -79,8 +79,12 @@ public class InventoryMenuView {
         
     public InventoryMenuView() {
         
-        this.inventoryMenu = "\n"
-                + "\n---------------------------------------------------------"
+        this.inventoryMenu = "This is a long journey, full of many obastacles and challenges."
+                  + "\nTo acomplish this, the best thing to do is chose one of the"
+                  + "\ntools below. But you must be prepared to be tested when you"
+                  + "\nchoose one of them. Good Luck!\n"
+                
+                  + "\n---------------------------------------------------------"
                   + "\n|                Resources Options                     |"
                   + "\n---------------------------------------------------------"
                   + "\nW - Bottle of Water"
@@ -88,6 +92,7 @@ public class InventoryMenuView {
                   + "\nL - Linen"
                   + "\nB - Blanket"
                   + "\nM - Serum Metal Stick"
+                  + "\nQ - Back to main menu"
                   + "\n---------------------------------------------------------";
     
     }

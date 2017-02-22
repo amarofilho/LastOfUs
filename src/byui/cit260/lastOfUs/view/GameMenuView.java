@@ -11,7 +11,10 @@ package byui.cit260.lastOfUs.view;
  */
 public class GameMenuView {
     void displayMenu(){
-        System.out.println("\n*** displayMenu stub function called ***");
+        /*System.out.println("\n*** displayMenu stub function called ***");*/
+        
+        InventoryMenuView inventoryMenu = new InventoryMenuView();
+        inventoryMenu.displayInventoryMenuView();
     }
     
     

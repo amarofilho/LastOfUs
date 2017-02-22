@@ -85,6 +85,7 @@ public class HelpMenuView {
                   + "\nE - Estimating the amount of resources"
                   + "\nH - Harvesting resources"
                   + "\nD - Delivering resources to warehouse"
+                  + "\nQ - Back to main menu"
                   + "\n---------------------------------------------------------";
     }
 

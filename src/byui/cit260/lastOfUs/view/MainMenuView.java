@@ -99,8 +99,12 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("*** displayHelpMenu function called ***");
+        /*System.out.println("*** displayHelpMenu function called ***");*/
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMainMenuView();
         
+        
+                
     }    
     private void saveGame() {
        System.out.println("*** saveGame function called ***"); 

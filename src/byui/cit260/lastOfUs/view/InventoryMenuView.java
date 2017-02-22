@@ -12,14 +12,14 @@ import byui.cit260.lastOfUs.control.GameControl;
  *
  * @author AmaroIdelfonso
  */
-public class InventoryView {
+public class InventoryMenuView {
   
     private String inventoryMenu;
     
     public void displayInventoryMenuView() {
         boolean done = false;
         do{
-            String inventoryMenuOption = this.GetInventoryOption();
+            String inventoryMenuOption = this.getInventoryOption();
             if (inventoryMenuOption.toUpperCase().equals("Q"))
                 return;
             
@@ -27,7 +27,7 @@ public class InventoryView {
         } while (!done);
     }
     
-    private String GetInventoryOption(){
+    private String getInventoryOption(){
         Scanner keyboard = new Scanner(System.in);
         
         String value = "";
@@ -50,20 +50,6 @@ public class InventoryView {
         
     }
     
-    private void InventoryMenuView() {
-        
-        this.inventoryMenu = "\n"
-                + "\n---------------------------------------------------------"
-                  + "\n|                Resources Options                     |"
-                  + "\n---------------------------------------------------------"
-                  + "\nW - Bottle of Water"
-                  + "\nS - Scalpel"
-                  + "\nL - Linen"
-                  + "\nB - Blanket"
-                  + "\nM - Serum Metal Stick"
-                  + "\n---------------------------------------------------------";
-    
-    }
     private boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
@@ -89,6 +75,21 @@ public class InventoryView {
                 break;
         }
         return false;
+    }
+        
+    public InventoryMenuView() {
+        
+        this.inventoryMenu = "\n"
+                + "\n---------------------------------------------------------"
+                  + "\n|                Resources Options                     |"
+                  + "\n---------------------------------------------------------"
+                  + "\nW - Bottle of Water"
+                  + "\nS - Scalpel"
+                  + "\nL - Linen"
+                  + "\nB - Blanket"
+                  + "\nM - Serum Metal Stick"
+                  + "\n---------------------------------------------------------";
+    
     }
 
     private void bottleWater() {

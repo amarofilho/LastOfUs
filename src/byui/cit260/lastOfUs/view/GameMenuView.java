@@ -19,8 +19,6 @@ public class GameMenuView {
     
     public void displayMenu(){
             
-        //InventoryMenuView inventoryMenu = new InventoryMenuView();
-        //inventoryMenu.displayInventoryMenuView();
         boolean done = false;
         do{
             String menuOption = this.getMenuOption();
@@ -88,6 +86,7 @@ public class GameMenuView {
                   + "\n leave a red mark throughout may way.  Ps - Be careful to everyone you can possibly "
                   + "\n meet along the road. I've blocked the door to protect you from them, so good luck. "
                   + "\n "
+                  + "\n Choose on the below menu your next action"
                   + "\n "
                   + "\n R - Search for resources"
                   + "\n F - Find a way out of the room"
@@ -97,11 +96,13 @@ public class GameMenuView {
     }
 
     private void searchForResources() {
-        System.out.println("*** searchForResources() function called ***");
+        InventoryMenuView inventoryMenu = new InventoryMenuView();
+        inventoryMenu.displayInventoryMenuView();
     }
 
     private void findWayOut() {
-        System.out.println("*** findWayOut() function called ***");
+        Escape escape = new Escape();
+        escape.displayEscape();
     }
 
     private void healthCondition() {

@@ -26,20 +26,6 @@ public class MapControl {
         return result;
     }    
     
-    public double calcBuildingHeight(int initialSpeed,double gravitySpeed,int totalTime){
-        
-        if(initialSpeed != 0){
-            return -1;
-        }
-        if(gravitySpeed != 9.8){
-            return -1;
-        }
-        double height = (initialSpeed * totalTime) + (9.8 * (Math.pow(totalTime, 2))) / 2;
-        
-        return height;
-    }
-    
-    
     public double calcTrainSpeed(int distance, int speedUser, int time, int acceleration){
         
         if(distance != 1500){
@@ -60,4 +46,15 @@ public class MapControl {
         
         return initialSpeed;
     }
+
+    public double displaycalcBuildingHeigh(int totalTime) {
+        
+        int initialSpeed = 0;
+        double gravitySpeed = 9.8;
+        
+        double height = (initialSpeed * totalTime) + (gravitySpeed * (Math.pow(totalTime, 2))) / 2;
+        
+        return height;
+    }
+
 }

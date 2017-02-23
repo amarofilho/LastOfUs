@@ -48,12 +48,12 @@ public class MapView {
         
     }
     
-    private void MapMenuView() {
+    public MapView() {
         
-        this.mapMenu =("Please enter the 2 letters code to the city you wanna go:"
+        this.mapMenu = "Please enter the 2 letters code to the city you wanna go:"
         
     + "\n*********************************************************************************************************"
-    + "*                                            (PY)Payson________                                       \n  *"
+    + "*\n                                          (PY)Payson________                                       \n  *"
     + "*                                                     /        \\                                  MAP\n  *"
     + "*                                          __________/          \\   (PV)Provo                        \n  *"
     + "*                                         /                ______\\____/\\                            \n  *"
@@ -72,7 +72,7 @@ public class MapView {
     + "*(SG)Saint George#_/                                                                   *************  \n  *"
     + "* ***************                                                                                     \n  *"
     + "\n*********************************************************************************************************"
-    );
+    ;
     }
     private boolean doAction(String choice) {
         

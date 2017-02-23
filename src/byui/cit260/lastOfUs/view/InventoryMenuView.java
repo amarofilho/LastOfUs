@@ -99,7 +99,9 @@ public class InventoryMenuView {
     }
 
     private void bottleWater() {
-       System.out.println("\n*** bottlerWater() Called!!"); 
+       /*System.out.println("\n*** bottlerWater() Called!!"); */
+       CalcWaterView calcWater = new CalcWaterView();
+       
     }
     private void scalpel() {
         System.out.println("\n*** scalpel() Called!!");

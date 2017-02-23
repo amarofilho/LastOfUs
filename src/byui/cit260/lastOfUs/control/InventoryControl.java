@@ -22,5 +22,7 @@ public class InventoryControl {
     double liters = (consume * distance);
     return liters;
     }
-    
 }
+
+          
+

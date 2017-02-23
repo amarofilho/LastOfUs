@@ -14,7 +14,7 @@ import byui.cit260.lastOfUs.control.InventoryControl;
 public class CalcWaterView {
     void calcWater(){
       InventoryControl calcBottlerOfWather = new InventoryControl();
-      calcBottlerOfWather.displayInventoryControl(int distance,double consume);
+      calcBottlerOfWather.displayInventoryControl(distance,consume);
         
     }
 }

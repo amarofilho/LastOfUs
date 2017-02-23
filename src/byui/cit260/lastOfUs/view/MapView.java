@@ -92,7 +92,7 @@ public class MapView {
                 this.moveNephi();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try again");
+                System.out.println("\n*** Invalid Selection, or you can't go that far*** Try again");
                 break;
         }
         return false;

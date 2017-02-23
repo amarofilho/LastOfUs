@@ -7,6 +7,7 @@ package byui.cit260.lastOfUs.view;
 
 import java.util.Scanner;
 import byui.cit260.lastOfUs.control.GameControl;
+import byui.cit260.lastOfUs.control.InventoryControl;
 
 /**
  *
@@ -15,7 +16,8 @@ import byui.cit260.lastOfUs.control.GameControl;
 public class InventoryMenuView {
   
     private String inventoryMenu;
-    
+    private double liters;
+        
     public void displayInventoryMenuView() {
         boolean done = false;
         do{
@@ -98,7 +100,26 @@ public class InventoryMenuView {
     }
 
     private void bottleWater() {
-        System.out.println("\n*** bottleWater() Called!!");
+        Scanner keyboard = new Scanner(System.in);
+        
+        int distance;
+        double consume;
+        
+        boolean valid = false;
+        
+        while (!valid){
+            System.out.println("\n Please enter the distance you will run:");
+            distance = keyboard.nextInt();
+            System.out.println("\n Please enter your estimated consume:");
+            consume = keyboard.nextDouble();
+            
+            if(distance >= 48){
+                System.out.println("\n Invalid value: value need to be >= 48");
+                continue;
+            }
+            break;
+            InventoryControl calcBottlerOfWather = new InventoryControl();
+            liters.InventoryControl(distance,consume);
     }
 
     private void scalpel() {

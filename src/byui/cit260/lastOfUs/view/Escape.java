@@ -81,7 +81,7 @@ public class Escape {
         
     private void displayNextView(double result) {
         System.out.println("\n=================================================="
-                          +"\n The Height of the building is " + result
+                          +"\n The Height of the building is " + result +" meters!!"
                           +"\n This must be the size of your rope!"
                           +"\n=================================================="
                           );

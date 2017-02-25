@@ -43,7 +43,7 @@ public class MapControlTest {
         int totalTime = 2;
         MapControl instance = new MapControl();
         double expResult = 19.6;
-        double result = instance.calcBuildingHeight(initialSpeed, gravitySpeed, totalTime);
+        double result = instance.displaycalcBuildingHeigh(totalTime);
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
         

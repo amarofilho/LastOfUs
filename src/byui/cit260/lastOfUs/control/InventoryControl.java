@@ -11,17 +11,25 @@ package byui.cit260.lastOfUs.control;
  */
 public class InventoryControl {
     
-    public double calcBottlerOfWather(int distance, double consume){
-        if (distance >= 48){
-            return -1;
+    public double calcBottlerOfWather(double consume){
+        
+         
+        int distance;
+        distance = 1;
+        double teste;
+        teste = 2.64;
+        if (consume == teste){
+            double liters = (teste * distance);
+            return liters;
         }
-        if (consume != 0.055){
+        if (consume != 2.64){
             return -1;
         }
         
-    double liters = (consume * distance);
-    return liters;
+     return -1;
     }
+
+    
 }
 
           

@@ -17,7 +17,7 @@ public class MainMenuView extends View {
     
     private String menu;
     
-    public void displayMainMenuView() {
+   /* public void displayMainMenuView() {
         boolean done = false;
         do{
             String menuOption = this.getMenuOption();
@@ -26,9 +26,9 @@ public class MainMenuView extends View {
             
             done = this.doAction(menuOption);
         } while (!done);
-    }
+    }*/
 
-    private String getMenuOption() {
+   /* private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         
         String value = "";
@@ -47,9 +47,10 @@ public class MainMenuView extends View {
             break;
         }
         return value;
-    }
+    }*/
 
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
@@ -74,7 +75,7 @@ public class MainMenuView extends View {
     }
         
     public MainMenuView(){
-        this.menu = "\n"
+            super("\n"
                   + "\n---------------------------------------------------------"
                   + "\n|                     Main Menu                         |"
                   + "\n---------------------------------------------------------"
@@ -83,7 +84,7 @@ public class MainMenuView extends View {
                   + "\nH - Get help on how to play the game"
                   + "\nS - Save Game"
                   + "\nQ - Quit"
-                  + "\n---------------------------------------------------------";
+                  + "\n---------------------------------------------------------");
     }
 
     private void startNewGame() {
@@ -109,4 +110,5 @@ public class MainMenuView extends View {
     private void saveGame() {
        System.out.println("*** saveGame function called ***"); 
     }
+
 }

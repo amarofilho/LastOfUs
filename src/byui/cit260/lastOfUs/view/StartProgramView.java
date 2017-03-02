@@ -79,14 +79,13 @@ public class StartProgramView {
         }
         return value;
     }
-
-    private boolean doAction(String playersName) {
-        if (playersName.length() < 2){
+    private boolean doAction(String value) {
+        if (value.length() < 2){
             System.out.println("\nInvalid Players name: "+ "The name must be greater than 1 character");
             return false;
         }
         
-        Player player = GameControl.createPlayer(playersName);
+        Player player = GameControl.createPlayer(value);
         
         if(player == null){
             System.out.println("\n Error creating the player");
@@ -104,7 +103,7 @@ public class StartProgramView {
                           );
         MainMenuView mainMenuView = new MainMenuView();
                 
-        mainMenuView.displayMainMenuView();        
+        mainMenuView.display();        
             
     }
     

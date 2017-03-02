@@ -1,13 +1,13 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To chwange this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package byui.cit260.lastOfUs.view;
 
 import java.util.Scanner;
-import byui.cit260.lastOfUs.control.GameControl;
 import byui.cit260.lastOfUs.control.InventoryControl;
+
 
 /**
  *
@@ -100,10 +100,11 @@ public class InventoryMenuView {
 
     private void bottleWater() {
        /*System.out.println("\n*** bottlerWater() Called!!"); */
-       CalcWaterView calcWater = new CalcWaterView();
-       
+       CalcWaterView calcWaterView = new CalcWaterView();
+        calcWaterView.displayCalcWaterView();
+      
     }
-    private void scalpel() {
+    private void scalpel(){
         System.out.println("\n*** scalpel() Called!!");
     }
 

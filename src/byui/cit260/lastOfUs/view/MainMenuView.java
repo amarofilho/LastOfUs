@@ -13,7 +13,7 @@ import lastofusgame.LastOfUsGame;
  *
  * @author AmaroIdelfonso
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
     private String menu;
     

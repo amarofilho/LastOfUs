@@ -15,10 +15,10 @@ import java.util.Scanner;
  */
 public class StartProgramView {
     
-    private String promptMessage;
+    private String displayMessage;
     
     public StartProgramView(){
-        this.promptMessage = "\n Please enter your name: ";
+        this.displayMessage = "\n Please enter your name: ";
         //display the banner when view is created
         this.displayBanner();
     }
@@ -66,7 +66,7 @@ public class StartProgramView {
         boolean valid = false;
         
         while (!valid){
-            System.out.println("\n "+ this.promptMessage);
+            System.out.println("\n "+ this.displayMessage);
             
             value = keyboard.nextLine();
             value = value.trim();

@@ -87,7 +87,7 @@ public class Escape {
                           );
         MapView mapView = new MapView();
                 
-        mapView.displayMapMenuView(); 
+        mapView.display(); 
           
     }    
     

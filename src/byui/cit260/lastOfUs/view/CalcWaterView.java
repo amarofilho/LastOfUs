@@ -77,7 +77,7 @@ public class CalcWaterView {
           
           MapView mapView = new MapView();
                 
-        mapView.displayMapMenuView();
+        mapView.display();
       }
       
 

@@ -10,11 +10,11 @@ import java.util.Scanner;
  *
  * @author Família Haitmann
  */
-public class MapView {
+public class MapView extends View{
     
-    private String mapMenu;
+   // private String mapMenu;
     
-    public void displayMapMenuView() {
+   /* public void displayMapMenuView() {
         boolean done = false;
         do{
             String mapMenuOption = this.GetMapOption();
@@ -23,9 +23,9 @@ public class MapView {
             
             done = this.doAction(mapMenuOption);
         } while (!done);
-    }
+    }*/
     
-    private String GetMapOption(){
+    /*private String GetMapOption(){
         Scanner keyboard = new Scanner(System.in);
         
         String value = "";
@@ -46,11 +46,11 @@ public class MapView {
         return value;
         
         
-    }
+    }*/
     
     public MapView() {
         
-        this.mapMenu = "Please enter the 2 letters code to the city you wanna go:"
+        super( "Please enter the 2 letters code to the city you wanna go:"
         
     + "\n*********************************************************************************************************"
     + "*\n                                          (PY)Payson________                                       \n  *"
@@ -72,9 +72,10 @@ public class MapView {
     + "*(SG)Saint George#_/                                                                   *************  \n  *"
     + "* ***************                                                                                     \n  *"
     + "\n*********************************************************************************************************"
-    ;
+        );
     }
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         

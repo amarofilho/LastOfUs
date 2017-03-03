@@ -13,11 +13,11 @@ import byui.cit260.lastOfUs.control.InventoryControl;
  *
  * @author AmaroIdelfonso
  */
-public class InventoryMenuView {
+public class InventoryMenuView extends View{
   
-    private String inventoryMenu;
+   // private String inventoryMenu;
             
-    public void displayInventoryMenuView() {
+    /*public void displayInventoryMenuView() {
         boolean done = false;
         do{
             String inventoryMenuOption = this.getInventoryOption();
@@ -49,9 +49,9 @@ public class InventoryMenuView {
         return value;
         
         
-    }
-    
-    private boolean doAction(String choice) {
+    }*/
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
@@ -80,7 +80,7 @@ public class InventoryMenuView {
         
     public InventoryMenuView() {
         
-        this.inventoryMenu = "This is a long journey, full of many obastacles and challenges."
+        super("This is a long journey, full of many obastacles and challenges."
                   + "\nTo acomplish this, the best thing to do is chose one of the"
                   + "\ntools below. But you must be prepared to be tested when you"
                   + "\nchoose one of them. Good Luck!\n"
@@ -94,7 +94,7 @@ public class InventoryMenuView {
                   + "\nB - Blanket"
                   + "\nM - Serum Metal Stick"
                   + "\nQ - Back to main menu"
-                  + "\n---------------------------------------------------------";
+                  + "\n---------------------------------------------------------");
     
     }
 

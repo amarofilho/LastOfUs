@@ -13,10 +13,10 @@ import java.util.Scanner;
  *
  * @author AmaroIdelfonso
  */
-public class HelpMenuView {
-    private String menu;
+public class HelpMenuView extends View{
+    //private String menu;
     
-    public void displayMainMenuView() {
+   /* public void displayMainMenuView() {
         boolean done = false;
         do{
             String menuOption = this.getMenuOption();
@@ -46,9 +46,9 @@ public class HelpMenuView {
             break;
         }
         return value;
-    }
-
-    private boolean doAction(String choice) {
+    }*/
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
@@ -76,7 +76,7 @@ public class HelpMenuView {
     }
         
     public HelpMenuView(){
-        this.menu = "\n"            
+        super("\n"            
                 
                   + "\n---------------------------------------------------------"
                   + "\n|                     Getting Help                       |"
@@ -87,7 +87,7 @@ public class HelpMenuView {
                   + "\nH - Harvesting resources"
                   + "\nD - Delivering resources to warehouse"
                   + "\nQ - Back to main menu"
-                  + "\n---------------------------------------------------------";
+                  + "\n---------------------------------------------------------");
     }
 
     private void gameGoal() {

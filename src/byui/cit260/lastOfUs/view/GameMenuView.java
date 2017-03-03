@@ -13,11 +13,11 @@ import lastofusgame.LastOfUsGame;
  *
  * @author Família Haitmann
  */
-public class GameMenuView {
+public class GameMenuView extends View {
     
-    private String menu;
+   // private String menu;
     
-    public void displayMenu(){
+   /* public void displayMenu(){
             
         boolean done = false;
         do{
@@ -27,9 +27,9 @@ public class GameMenuView {
             
             done = this.doAction(menuOption);
         } while (!done);
-    }    
+    } */   
 
-    private String getMenuOption() {
+    /*private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         
         String value = "";
@@ -48,9 +48,9 @@ public class GameMenuView {
             break;
         }
         return value;
-    }
-
-    private boolean doAction(String choice) {
+    }*/
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
@@ -72,7 +72,7 @@ public class GameMenuView {
     }
         
     public GameMenuView(){
-        this.menu = "\n My name is John Smith I´ve been trying to survive here in Saint George Utah  "
+        super("\n My name is John Smith I´ve been trying to survive here in Saint George Utah  "
                   + "\n but things are getting worse day after day, I’ve lost all my family and friends,"
                   + "\n and I don’t remember the last time I saw a living person. I don’t know why the "
                   + "\n virus seems not to affect me, I was bitten by my neighbor when I was trying to "
@@ -92,12 +92,12 @@ public class GameMenuView {
                   + "\n F - Find a way out of the room"
                   + "\n H - Check your Health Condition"
                   + "\n Q - Quit Game"
-                  + "\n---------------------------------------------------------";
+                  + "\n---------------------------------------------------------");
     }
 
     private void searchForResources() {
         InventoryMenuView inventoryMenu = new InventoryMenuView();
-        inventoryMenu.displayInventoryMenuView();
+        inventoryMenu.display();
     }
 
     private void findWayOut() {

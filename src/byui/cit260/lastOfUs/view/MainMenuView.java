@@ -15,7 +15,7 @@ import lastofusgame.LastOfUsGame;
  */
 public class MainMenuView extends View {
     
-    private String menu;
+   // private String menu;
     
    /* public void displayMainMenuView() {
         boolean done = false;
@@ -92,7 +92,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(LastOfUsGame.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
@@ -102,7 +102,7 @@ public class MainMenuView extends View {
     private void displayHelpMenu() {
         /*System.out.println("*** displayHelpMenu function called ***");*/
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMainMenuView();
+        helpMenu.display();
         
         
                 

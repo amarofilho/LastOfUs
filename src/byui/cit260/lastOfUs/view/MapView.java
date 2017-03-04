@@ -99,8 +99,10 @@ public class MapView extends View{
         return false;
     }
 
-    private void moveCedarCity() {
+    void moveCedarCity() {
         System.out.println("\n*** moveCedarCity() Called!!");
+         
+        
     }
 
     private void moveTwinFalls() {

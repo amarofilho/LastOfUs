@@ -105,7 +105,8 @@ public class InventoryMenuView extends View{
       
     }
     private void scalpel(){
-        System.out.println("\n*** scalpel() Called!!");
+        InventoryControl findScalpel = new InventoryControl();
+        findScalpel.findIndex();
     }
 
     private void linen() {

@@ -5,6 +5,11 @@
  */
 package byui.cit260.lastOfUs.control;
 
+import byui.cit260.lastOfUs.model.Game;
+import byui.cit260.lastOfUs.model.Inventory;
+import byui.cit260.lastOfUs.model.Inventory.Item;
+import lastofusgame.LastOfUsGame;
+
 /**
  *
  * @author Survivors of Brazil
@@ -29,6 +34,15 @@ public class InventoryControl {
      return -1;
     }
 
+    public void findIndex() {
+        Item[] itens = Inventory.Item.values();
+        int index = 0;
+        for (Item Item : itens) {
+            index++;
+            System.out.println("####The index of "+Item.name()+" is "+Item.ordinal()+" ####");    
+        }
+        System.out.println("\n This array has "+ index+ " positions!!!");
+    }
     
 }
 

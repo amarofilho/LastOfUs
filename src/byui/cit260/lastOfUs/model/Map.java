@@ -16,37 +16,71 @@ public class Map implements Serializable{
     
     //class instance variables
     
-    private String city;
-    private String  spotLocation;
+    private int noOfRows;
+    private int noOfColumns;
+    private Location[][] locations;
 
     public Map() {
     }
+
+    public Map(int noOfRows, int noOfColumns) {
+        if(noOfRows < 1 || noOfColumns < 1){
+            System.out.println("The number of rows and columns must be > zero!!");
+            return;
+        }
+        
+        this.noOfRows = noOfRows;
+        this.noOfColumns = noOfColumns;
+        
+        this.locations = new Location[noOfRows][noOfColumns];
+        
+        for(int row = 0; row < noOfRows; row++){
+            for(int column = 0; column < noOfColumns; column++){
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations[row][column] = location;
+            }
+        }
+    }
     
-    
-
-    public String getCityLocation() {
-        return city;
+    public int getNoOfRows() {
+        return noOfRows;
     }
 
-    public void setCityLocation(String cityLocation) {
-        this.city = cityLocation;
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
     }
 
-    public String getSpotLocation() {
-        return spotLocation;
+    public int getNoOfColumns() {
+        return noOfColumns;
     }
 
-    public void setSpotLocation(String spotLocation) {
-        this.spotLocation = spotLocation;
+    public void setNoOfColumns(int noOfColumns) {
+        this.noOfColumns = noOfColumns;
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+    @Override
+    public String toString() {
+        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.city);
-        hash = 37 * hash + Objects.hashCode(this.spotLocation);
+        int hash = 3;
+        hash = 29 * hash + this.noOfRows;
+        hash = 29 * hash + this.noOfColumns;
         return hash;
-        
     }
 
     @Override
@@ -61,19 +95,15 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (!Objects.equals(this.city, other.city)) {
+        if (this.noOfRows != other.noOfRows) {
             return false;
         }
-        if (!Objects.equals(this.spotLocation, other.spotLocation)) {
+        if (this.noOfColumns != other.noOfColumns) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "city=" + city + ", spotLocation=" + spotLocation + '}';
-    }
     
     
     

@@ -16,55 +16,42 @@ import java.util.Objects;
 public class Inventory implements Serializable{
     
     //class instance variables
-    private String item;
-    private Integer quantity;
-    private String type;
-    private String status;
+    private String description;
+    private Integer quantityInStock;
 
+    public enum Item{
+        waterBottle,
+        scalpel,
+        linen,
+        blanket,
+        metalStick,
+        
+    }
     public Inventory() {
     }
-    
-    
-
-    public String getItem() {
-        return item;
+ 
+    public String getDescription() {
+        return description;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setDescription(String item) {
+        this.description = item;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getQuantityInStock() {
+        return quantityInStock;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setQuantityInStock(Integer quantity) {
+        this.quantityInStock = quantity;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.item);
-        hash = 37 * hash + Objects.hashCode(this.quantity);
-        hash = 37 * hash + Objects.hashCode(this.type);
-        hash = 37 * hash + Objects.hashCode(this.status);
+        hash = 37 * hash + Objects.hashCode(this.description);
+        hash = 37 * hash + Objects.hashCode(this.quantityInStock);
         return hash;
     }
 
@@ -80,16 +67,11 @@ public class Inventory implements Serializable{
             return false;
         }
         final Inventory other = (Inventory) obj;
-        if (!Objects.equals(this.item, other.item)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.status, other.status)) {
-            return false;
-        }
-        if (!Objects.equals(this.quantity, other.quantity)) {
+
+        if (!Objects.equals(this.quantityInStock, other.quantityInStock)) {
             return false;
         }
         return true;
@@ -97,11 +79,11 @@ public class Inventory implements Serializable{
 
     @Override
     public String toString() {
-        return "Inventory{" + "item=" + item + ", quantity=" + quantity + ", type=" + type + ", status=" + status + '}';
+        return "Inventory{" + "description=" + description + ", quantity in stock=" + quantityInStock + '}';
     }
 
     public void setName(String map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(" serName function called!!");
     }
     
     

@@ -16,6 +16,26 @@ public class Game implements Serializable{
     
     private double totalTime;
     private String noPeople;
+    private Map map;
+   
+    private Inventory[] inventoryItem;
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    
+    public Inventory[] getInventory() {
+        return inventoryItem;
+    }
+
+    public void setInventory(Inventory[] inventory) {
+        this.inventoryItem = inventory;
+    }
 
     public Game() {
     }
@@ -69,6 +89,11 @@ public class Game implements Serializable{
         }
         return true;
     }
+
+    public void setPlayer(Player player) {
+        System.out.println("setPlayer function called!!!");
+    }
+
     
     
     

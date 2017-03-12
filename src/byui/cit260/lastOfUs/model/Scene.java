@@ -15,29 +15,33 @@ import java.util.Objects;
 public class Scene implements Serializable{
     
     // class intance variables
-    private String name;
-    private String type;
+    private boolean blocked;
     private String description;
+    private String mapSymbol;
+
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
 
     public Scene() {
     }
     
-    
-
-    public String getName() {
-        return name;
+    public enum SceneType{
+        OutOfHospital,
+        wallmart,
+                
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean isBlocked() {
+        return blocked;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
     public String getDescription() {
@@ -46,16 +50,18 @@ public class Scene implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
-        
-        
     }
 
     @Override
+    public String toString() {
+        return "Scene{" + "blocked=" + blocked + ", description=" + description + '}';
+    }
+    
+    @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.name);
-        hash = 47 * hash + Objects.hashCode(this.type);
-        hash = 47 * hash + Objects.hashCode(this.description);
+        int hash = 3;
+        hash = 61 * hash + (this.blocked ? 1 : 0);
+        hash = 61 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -71,29 +77,15 @@ public class Scene implements Serializable{
             return false;
         }
         final Scene other = (Scene) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
+        if (this.blocked != other.blocked) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
-        
-        
     }
-
-    @Override
-    public String toString() {
-        return "Scene{" + "name=" + name + ", type=" + type + ", description=" + description + '}';
-    }
-
-    public void setDiscription(String insideHospital) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+      
     
     
 }

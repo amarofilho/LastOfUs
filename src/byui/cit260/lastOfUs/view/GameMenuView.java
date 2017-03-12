@@ -6,6 +6,10 @@
 package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.GameControl;
+import byui.cit260.lastOfUs.model.Game;
+import byui.cit260.lastOfUs.model.Inventory;
+import byui.cit260.lastOfUs.model.Location;
+import byui.cit260.lastOfUs.model.Map;
 import java.util.Scanner;
 import lastofusgame.LastOfUsGame;
 
@@ -14,47 +18,19 @@ import lastofusgame.LastOfUsGame;
  * @author Família Haitmann
  */
 public class GameMenuView extends View {
-    
-   // private String menu;
-    
-   /* public void displayMenu(){
-            
-        boolean done = false;
-        do{
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(menuOption);
-        } while (!done);
-    } */   
-
-    /*private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n "+ this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.isEmpty()){
-                System.out.println("\n Invalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }*/
+   
     @Override
     public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         
         switch (choice){
+            case "M":
+                this.displayMap();
+                break;
+            case "I":
+                this.viewInventory();
+                break;
             case "R":
                 this.searchForResources();
                 break;
@@ -88,6 +64,8 @@ public class GameMenuView extends View {
                   + "\n "
                   + "\n Choose on the below menu your next action"
                   + "\n "
+                  + "\n M - View Map"
+                  + "\n I - View Inventory"
                   + "\n R - Search for resources"
                   + "\n F - Find a way out of the room"
                   + "\n H - Check your Health Condition"
@@ -109,8 +87,48 @@ public class GameMenuView extends View {
         System.out.println("*** healthCondition() function called ***");
     }
 
+    private void displayMap() {
+        StringBuilder line;
+        Game game = LastOfUsGame.getCurrentGame();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocations();
+        
+        System.out.println("\n      WEST OF USA MAP");
+        line = new StringBuilder("                                  ");
+        line.insert(0, "1");
+        line.insert(5, "2");
 
+        System.out.println(line.toString());
+        
+        for(int i=0; i < locations.length; i++){
+            
+            for(int j=0; j < locations.length; j++){
+                line.insert(0,locations[i][j]);
+            }            
+               
+            System.out.println(line.toString());
+        }
+    }  
     
-    
-    
+
+    private void viewInventory() {
+        StringBuilder line;
+        
+        Game game = LastOfUsGame.getCurrentGame();
+        Inventory[] inventoryItem = game.getInventory();
+        
+        System.out.println("\n      LIST OF INVENTORY ITENS");
+        line = new StringBuilder("                                  ");
+        line.insert(0, "DESCRIPTION");
+        line.insert(20, "IN STOCK");
+        System.out.println(line.toString());
+        
+        for(Inventory item : inventoryItem){
+            line = new StringBuilder("                                  ");
+            line.insert(0,item.getDescription());
+            line.insert(20,item.getQuantityInStock());
+            
+            System.out.println(line.toString());
+        }
+    }    
 }

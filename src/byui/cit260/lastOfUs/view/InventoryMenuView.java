@@ -71,6 +71,9 @@ public class InventoryMenuView extends View{
             case "M":
                 this.serumStick();
                 break;
+            case "O":
+                this.othersResources();
+                break;
             default:
                 System.out.println("\n*** Invalid Selection *** Try again");
                 break;
@@ -93,6 +96,7 @@ public class InventoryMenuView extends View{
                   + "\nL - Linen"
                   + "\nB - Blanket"
                   + "\nM - Serum Metal Stick"
+                  + "\nO - Others Resources"
                   + "\nQ - Back to main menu"
                   + "\n---------------------------------------------------------");
     
@@ -120,6 +124,12 @@ public class InventoryMenuView extends View{
     private void serumStick() {
         System.out.println("\n*** serumStick() Called!!");
     }
+    
+    private void othersResources(){
+      InventoryControl showResources = new InventoryControl();
+        showResources.showArray();  
+    
+}
 }
 
     

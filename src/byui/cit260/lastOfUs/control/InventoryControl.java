@@ -8,6 +8,8 @@ package byui.cit260.lastOfUs.control;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
+import byui.cit260.lastOfUs.model.Resources;
+import byui.cit260.lastOfUs.model.Resources.Choices;
 import lastofusgame.LastOfUsGame;
 
 /**
@@ -44,6 +46,15 @@ public class InventoryControl {
         System.out.println("\n This array has "+ index+ " positions!!!");
     }
     
+    public void showArray() {
+        Choices[] itens = Resources.Choices.values();
+        int index = 0;
+        for (Choices Choice : itens) {
+            index++;
+            System.out.println("The index list of itens "+Choice.name()+" is "+Choice.ordinal()+"");    
+        }
+        System.out.println("\n This array has "+ index+ " options!!!");
+    }
 }
 
           

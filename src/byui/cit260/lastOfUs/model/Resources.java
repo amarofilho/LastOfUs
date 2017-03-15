@@ -16,9 +16,17 @@ public class Resources implements Serializable{
     
      // class intance variables
     private String name;
-    private String type;
+    private Integer type;
     private String status;
     private Integer quantity;
+    
+    public enum Choices{
+        
+        useList,
+        takeMap,
+        backscene,
+        
+    }
 
     public Resources() {
     }
@@ -33,11 +41,11 @@ public class Resources implements Serializable{
         this.name = name;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

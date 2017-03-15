@@ -8,6 +8,8 @@ package byui.cit260.lastOfUs.control;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
+import byui.cit260.lastOfUs.model.Resources;
+import byui.cit260.lastOfUs.model.Resources.Choice;
 import byui.cit260.lastOfUs.model.Location;
 import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
@@ -25,7 +27,7 @@ public class GameControl {
     private Map map;
     private Location location;
     private Scene scene;
-
+    
     public static Player createPlayer(String playersName) {
         if (playersName == null){
             return null;
@@ -82,6 +84,32 @@ public class GameControl {
         inventoryItem[Item.metalStick.ordinal()] = mStick;
         
         return inventoryItem;
+    }
+    
+    private static Resources[] createResourceList() {
+        
+    
+        
+        Resources[] resourceOption = new Resources[6];
+        
+        Resources useList = new Resources();
+        useList.setName("Take an Inventory list");
+        useList.setType(0);
+        resourceOption[Choice.useList.ordinal()] = useList;
+        
+        Resources takeMap = new Resources();
+        takeMap.setName("Take a Map");
+        takeMap.setType(0);
+        resourceOption[Choice.takeMap.ordinal()] = takeMap;
+        
+        Resources backscene = new Resources();
+        takeMap.setName("Back to Last scene");
+        takeMap.setType(0);
+        resourceOption[Choice.backscene.ordinal()] = backscene;
+        
+        
+        
+        return resourceOption;
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {

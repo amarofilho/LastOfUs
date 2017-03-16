@@ -5,6 +5,7 @@
  */
 package byui.cit260.lastOfUs.control;
 
+import byui.cit260.lastOfUs.exceptions.InventoryControlExeptions;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
@@ -18,7 +19,8 @@ import lastofusgame.LastOfUsGame;
  */
 public class InventoryControl {
     
-    public double calcBottlerOfWather(double consume){
+    public void calcBottlerOfWather(double consume)
+                    throws InventoryControlExeptions{
         
          
         int distance;
@@ -27,13 +29,14 @@ public class InventoryControl {
         teste = 2.64;
         if (consume == teste){
             double liters = (teste * distance);
-            return liters;
+            
         }
         if (consume != 2.64){
-            return -1;
+            throw new InventoryControlExeptions(""+ consume+ " isn´t a number"
+                                                +" Please,insert only numbers");
         }
         
-     return -1;
+    
     }
 
     public void findIndex() {

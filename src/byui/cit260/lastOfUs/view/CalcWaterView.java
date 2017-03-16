@@ -5,6 +5,7 @@
  */
 package byui.cit260.lastOfUs.view;
 import byui.cit260.lastOfUs.control.InventoryControl;
+import byui.cit260.lastOfUs.exceptions.InventoryControlExeptions;
 import static java.lang.Double.isNaN;
 import java.util.Scanner;
 
@@ -65,9 +66,15 @@ public class CalcWaterView {
             return value;
         }
      private double doAction(double userEntry){
-         double result;
+         double result = 2.64;
          InventoryControl inventoryControl= new InventoryControl();
-         result = inventoryControl.calcBottlerOfWather(userEntry);
+         //result=
+         try {
+         inventoryControl.calcBottlerOfWather(userEntry);
+         }
+         catch (InventoryControlExeptions me){
+             System.out.println(me.getMessage());
+         }
          
          return result;
      }

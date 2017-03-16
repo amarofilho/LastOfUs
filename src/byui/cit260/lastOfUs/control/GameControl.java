@@ -9,7 +9,7 @@ import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
 import byui.cit260.lastOfUs.model.Resources;
-import byui.cit260.lastOfUs.model.Resources.Choice;
+import byui.cit260.lastOfUs.model.Resources.Choices;
 import byui.cit260.lastOfUs.model.Location;
 import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
@@ -95,17 +95,17 @@ public class GameControl {
         Resources useList = new Resources();
         useList.setName("Take an Inventory list");
         useList.setType(0);
-        resourceOption[Choice.useList.ordinal()] = useList;
+        resourceOption[Choices.useList.ordinal()] = useList;
         
         Resources takeMap = new Resources();
         takeMap.setName("Take a Map");
         takeMap.setType(0);
-        resourceOption[Choice.takeMap.ordinal()] = takeMap;
+        resourceOption[Choices.takeMap.ordinal()] = takeMap;
         
         Resources backscene = new Resources();
         takeMap.setName("Back to Last scene");
         takeMap.setType(0);
-        resourceOption[Choice.backscene.ordinal()] = backscene;
+        resourceOption[Choices.backscene.ordinal()] = backscene;
         
         
         

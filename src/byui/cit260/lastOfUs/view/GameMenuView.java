@@ -6,11 +6,14 @@
 package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.GameControl;
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Location;
 import byui.cit260.lastOfUs.model.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lastofusgame.LastOfUsGame;
 
 /**
@@ -35,7 +38,13 @@ public class GameMenuView extends View {
                 this.searchForResources();
                 break;
             case "F":
+        {
+            try {
                 this.findWayOut();
+            } catch (Exception ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "H":
                 this.healthCondition();
@@ -78,7 +87,7 @@ public class GameMenuView extends View {
         inventoryMenu.display();
     }
 
-    private void findWayOut() {
+    private void findWayOut() throws MapControlException, Exception {
         Escape escape = new Escape();
         escape.displayEscape();
     }

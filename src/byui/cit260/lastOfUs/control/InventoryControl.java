@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -29,7 +29,6 @@ public class InventoryControl {
         teste = 2.64;
         if (consume == teste){
             double liters = (teste * distance);
-            
         }
         if (consume != 2.64){
             throw new InventoryControlExeptions(""+ consume+ " isn´t a number"

@@ -5,6 +5,10 @@
  */
 package byui.cit260.lastOfUs.view;
 
+import byui.cit260.lastOfUs.exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Família Haitmann
@@ -32,7 +36,13 @@ public class HealthCondition extends View{
                 this.searchForResources();
                 break;
             case "F":
+        {
+            try {
                 this.findWayOut();
+            } catch (Exception ex) {
+                Logger.getLogger(HealthCondition.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             default:
                 System.out.println("\n*** Invalid Selection,*** Try again");
@@ -46,7 +56,7 @@ public class HealthCondition extends View{
         inventoryMenu.display();
     }
 
-    private void findWayOut() {
+    private void findWayOut() throws MapControlException, Exception {
         Escape escape = new Escape();
         escape.displayEscape();
     }

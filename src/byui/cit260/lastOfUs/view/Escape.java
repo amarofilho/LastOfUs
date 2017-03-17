@@ -6,6 +6,7 @@
 package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.MapControl;
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Player;
 import static java.lang.Double.isNaN;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class Escape {
    
     private String banner;
     
-    public void displayEscape(){
+    public void displayEscape() throws MapControlException{
         
         double done = 0.0;
         do{
@@ -45,7 +46,8 @@ public class Escape {
                   + "\n Please enter the counted time:";  
         
     }
-        private int getUserInput() {
+        private int getUserInput() throws MapControlException{
+            
         Scanner keyboard = new Scanner(System.in);
         
         int value = 0;
@@ -53,28 +55,27 @@ public class Escape {
         
         while (!valid){
             
-            System.out.println("\n "+ this.banner); 
+                System.out.println("\n "+ this.banner); 
             
-            value = keyboard.nextInt();
+                value = keyboard.nextInt();
                         
-            if(value == 0){
-                System.out.println("\n Invalid value: value can not be blank");
-                continue;
+            if(value == 0 || isNaN(value)){
+                throw new MapControlException("Number cannot be <= zero or you have not entered a number");
             }
-            if(isNaN(value)){
-                System.out.println("\n Invalid value: Is not a Number");
-                continue;
-            }
-            break;
+            continue;
         }
         
         return value;
     }
-    private double doAction(int userEntry) {
+    private double doAction(int userEntry) throws MapControlException {
         
-        double result; 
-        MapControl mapControl = new MapControl();
-        result = mapControl.displaycalcBuildingHeigh(userEntry);
+        double result = 0; 
+        try{
+            MapControl mapControl = new MapControl();
+            result = mapControl.displaycalcBuildingHeigh(userEntry);
+        }catch(MapControlException me){
+            System.out.println(me.getMessage());
+        }    
         
         return result;
     }    

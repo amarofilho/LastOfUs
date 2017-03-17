@@ -5,6 +5,7 @@
  */
 package byui.cit260.lastOfUs.control;
 
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Scene;
 import byui.cit260.lastOfUs.model.Scene.SceneType;
@@ -74,13 +75,16 @@ public class MapControl {
         return initialSpeed;
     }
 
-    public double displaycalcBuildingHeigh(int totalTime) {
+    public double displaycalcBuildingHeigh(int totalTime) throws MapControlException  {
         
         int initialSpeed = 0;
         double gravitySpeed = 9.8;
-        
-        double height = (initialSpeed * totalTime) + (gravitySpeed * (Math.pow(totalTime, 2))) / 2;
-        
+        double height = 0;
+        try{
+            height = (initialSpeed * totalTime) + (gravitySpeed * (Math.pow(totalTime, 2))) / 2;
+        }catch(ArithmeticException ae){
+            System.out.println("The number you've entered cannot be zero!!");
+        }
         return height;
     }
 

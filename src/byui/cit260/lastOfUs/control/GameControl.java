@@ -5,6 +5,7 @@
  */
 package byui.cit260.lastOfUs.control;
 
+import byui.cit260.lastOfUs.exceptions.GameControlException;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
@@ -15,6 +16,7 @@ import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
 import byui.cit260.lastOfUs.model.Scene;
 import byui.cit260.lastOfUs.model.Scene.SceneType;
+import byui.cit260.lastOfUs.view.GameMenuView;
 import lastofusgame.LastOfUsGame;
 
 /**
@@ -87,9 +89,7 @@ public class GameControl {
     }
     
     private static Resources[] createResourceList() {
-        
-    
-        
+               
         Resources[] resourceOption = new Resources[6];
         
         Resources useList = new Resources();
@@ -120,12 +120,20 @@ public class GameControl {
             
     }
     
-     private void startNewGame(){
+     private void startNewGame() throws Exception{
         
         player = new Player();
         map = new Map();
         location = new Location();
-        
+        try{
+            GameControl.createNewGame(LastOfUsGame.getPlayer());
+        }catch(Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            return;
+        }    
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
                 
     }
 }

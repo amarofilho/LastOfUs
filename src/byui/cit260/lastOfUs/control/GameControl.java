@@ -6,6 +6,7 @@
 package byui.cit260.lastOfUs.control;
 
 import byui.cit260.lastOfUs.exceptions.GameControlException;
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
@@ -41,7 +42,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlException{
         
         Game game = new Game();
         LastOfUsGame.setCurrentGame(game);
@@ -120,13 +121,16 @@ public class GameControl {
             
     }
     
-     private void startNewGame() throws Exception{
+     private void startNewGame() {
         
         player = new Player();
         map = new Map();
         location = new Location();
         try{
             GameControl.createNewGame(LastOfUsGame.getPlayer());
+        }catch(MapControlException mce){
+            System.out.println(mce.getMessage());
+            return;
         }catch(Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();

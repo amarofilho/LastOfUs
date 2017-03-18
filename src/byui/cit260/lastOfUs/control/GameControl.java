@@ -31,13 +31,17 @@ public class GameControl {
     private Location location;
     private Scene scene;
     
-    public static Player createPlayer(String playersName) {
-        if (playersName == null){
-            return null;
-        }
+    public static Player createPlayer(String playersName)throws MapControlException {
+
         Player player = new Player();
         player.setName(playersName);
         
+        if (playersName == null){
+            throw new MapControlException("The Name of the Player can't be blank!!Press 'Q' to return...");
+        
+        }
+
+                    
         LastOfUsGame.setPlayer(player);
         return player;
     }

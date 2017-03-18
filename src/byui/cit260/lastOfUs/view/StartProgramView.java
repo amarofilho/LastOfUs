@@ -6,6 +6,7 @@
 package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.GameControl;
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Player;
 import java.util.Scanner;
 
@@ -48,19 +49,21 @@ public class StartProgramView {
         );
     }
 
-    public void displayStartProgramView() {
+    public void displayStartProgramView() throws MapControlException{
         
         boolean done  = false;
         do {
             String playersName = this.getPlayersName();
             if (playersName.toUpperCase().equals("Q"))
                 return;
-            
+           
             done = this.doAction(playersName);
+           
+            
         }while (!done);
     }
 
-    private String getPlayersName() {
+    private String getPlayersName() throws MapControlException{
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
@@ -68,30 +71,32 @@ public class StartProgramView {
         while (!valid){
             System.out.println("\n "+ this.displayMessage);
             
-            value = keyboard.nextLine();
-            value = value.trim();
-            
+                value = keyboard.nextLine();
+                value = value.trim();
+           
             if(value.isEmpty()){
-                System.out.println("\n Invalid value: value can not be blank");
-                continue;
-            }
-            break;
+                throw new MapControlException("Player's name cannot be blank!!");
+                //continue;
+            }continue;
         }
         return value;
     }
-    private boolean doAction(String value) {
-        if (value.length() < 2){
+    private boolean doAction(String value) throws MapControlException {
+        /*if (value.length() < 2){
             System.out.println("\nInvalid Players name: "+ "The name must be greater than 1 character");
             return false;
-        }
-        
-        Player player = GameControl.createPlayer(value);
-        
-        if(player == null){
+        }*/
+            try{
+                Player player = GameControl.createPlayer(value);
+                this.displayNextView(player);
+            }catch(MapControlException mce){
+                System.out.println(mce.getMessage());
+            }
+        /*if(player == null){
             System.out.println("\n Error creating the player");
             return false;
-        }
-        this.displayNextView(player);
+        }*/
+        
         return true;
     }
 

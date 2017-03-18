@@ -6,7 +6,10 @@
 package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.GameControl;
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lastofusgame.LastOfUsGame;
 
 /**
@@ -56,7 +59,13 @@ public class MainMenuView extends View {
         
         switch (choice){
             case "N":
+        {
+            try {
                 this.startNewGame();
+            } catch (MapControlException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "G":
                 this.startExistingGame();
@@ -87,7 +96,7 @@ public class MainMenuView extends View {
                   + "\n---------------------------------------------------------");
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
         
         GameControl.createNewGame(LastOfUsGame.getPlayer());
         

@@ -5,6 +5,7 @@
  */
 package lastofusgame;
 
+import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Actor;
 import byui.cit260.lastOfUs.model.Ally;
 import byui.cit260.lastOfUs.model.Enemy;
@@ -44,16 +45,18 @@ public class LastOfUsGame {
         LastOfUsGame.player = player;
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MapControlException {
         
         StartProgramView startProgramView = new StartProgramView();
         try{
             startProgramView.displayStartProgramView();
+        }catch(MapControlException msg){
+            System.out.println(msg.getMessage());
         }catch (Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();
-            startProgramView.displayStartProgramView();
         }
+        startProgramView.displayStartProgramView();
     }
     
     

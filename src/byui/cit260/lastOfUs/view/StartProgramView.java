@@ -75,9 +75,10 @@ public class StartProgramView {
                 value = value.trim();
            
             if(value.isEmpty()){
-                throw new MapControlException("Player's name cannot be blank!!");
-                //continue;
-            }continue;
+                throw new MapControlException("Player's name cannot be blank!!Try Again...");
+            
+            }
+            break;
         }
         return value;
     }

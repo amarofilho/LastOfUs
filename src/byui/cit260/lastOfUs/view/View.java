@@ -5,7 +5,10 @@
  */
 package byui.cit260.lastOfUs.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import lastofusgame.LastOfUsGame;
 
 /**
  *
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface  {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = LastOfUsGame.getInFile();
+    protected final PrintWriter console = LastOfUsGame.getOutFile();
     
     public View(){
     }

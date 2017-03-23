@@ -9,6 +9,10 @@ import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Scene;
 import byui.cit260.lastOfUs.model.Scene.SceneType;
+import byui.cit260.lastOfUs.view.ErrorView;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import lastofusgame.LastOfUsGame;
 
 
 /**
@@ -16,7 +20,9 @@ import byui.cit260.lastOfUs.model.Scene.SceneType;
  * @author Survivors of Brazil
  */
 public class MapControl {
-
+    
+    protected final BufferedReader keyboard = LastOfUsGame.getInFile();
+    protected final PrintWriter console = LastOfUsGame.getOutFile();
     public static Map createMap() {
         
         Map map = new Map(20, 20);
@@ -83,7 +89,7 @@ public class MapControl {
         try{
             height = (initialSpeed * totalTime) + (gravitySpeed * (Math.pow(totalTime, 2))) / 2;
         }catch(ArithmeticException ae){
-            System.out.println("The number you've entered cannot be zero!!");
+            ErrorView.display(this.getClass().getName(),"The number you've entered cannot be zero!!");
         }
         return height;
     }

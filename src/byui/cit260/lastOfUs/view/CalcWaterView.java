@@ -12,17 +12,6 @@ import static java.lang.Double.isNaN;
 import java.util.Scanner;
 import lastofusgame.LastOfUsGame;
 
-/**
- *
- * @author AmaroIdelfonso
-+ */
-/*public class CalcWaterView {
-    InventoryControl calcBottlerOfWather = new InventoryControl();*/
-
-//public double message(){
-  //     System.out.println("\n*** You chosen bottle of water. Now you must"
-   //                       + "\n know the necessary amount of water!!");
-
 public class CalcWaterView {
     
     protected String infor;
@@ -58,22 +47,22 @@ public class CalcWaterView {
         
         try{    
             while (!valid){
-                System.out.println("\n"+ this.infor);
+                this.console.println("\n"+ this.infor);
                 value = this.keyboard.readLine();
                 result = Double.parseDouble(value);
                 
                 if(result != 2.64){
-                    System.out.println("\n Sorry! Calculate again");
+                    ErrorView.display(this.getClass().getName(),"\n Sorry! Calculate again");
                     continue;
                 }
                 if(isNaN(result)){
-                    System.out.println("\n Please insert only number");
+                    ErrorView.display(this.getClass().getName(),"\n Please insert only number");
                     continue;
                 }
                 break;
             }
         }catch(Exception e){
-        System.out.println("Error reading input: "+ e.getMessage());
+        ErrorView.display(this.getClass().getName(),"Error reading input: "+ e.getMessage());
         }    
             return result;
         }
@@ -86,13 +75,13 @@ public class CalcWaterView {
          inventoryControl.calcBottlerOfWather(userEntry);
          }
          catch (InventoryControlExeptions me){
-             System.out.println(me.getMessage());
+             ErrorView.display(this.getClass().getName(),me.getMessage());
          }
          
          return result;
      }
       private void displayNextView(double result){
-          System.out.println("\n You are right! " + result + " are the liters of"
+          this.console.println("\n You are right! " + result + " are the liters of"
                              + "\n water necessary to complete this journey.");
           
           MapView mapView = new MapView();

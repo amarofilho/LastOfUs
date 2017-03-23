@@ -40,12 +40,12 @@ public class HealthCondition extends View{
             try {
                 this.findWayOut();
             } catch (Exception ex) {
-                Logger.getLogger(HealthCondition.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
                 break;
             default:
-                System.out.println("\n*** Invalid Selection,*** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection,*** Try again");
                 break;
         }
         return false;

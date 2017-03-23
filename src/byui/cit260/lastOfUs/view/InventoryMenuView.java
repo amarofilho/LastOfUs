@@ -40,7 +40,7 @@ public class InventoryMenuView extends View{
                 this.othersResources();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
                 break;
         }
         return false;
@@ -68,7 +68,7 @@ public class InventoryMenuView extends View{
     }
 
     private void bottleWater() {
-       /*System.out.println("\n*** bottlerWater() Called!!"); */
+      
        CalcWaterView calcWaterView = new CalcWaterView();
         calcWaterView.displayCalcWaterView();
       
@@ -79,15 +79,15 @@ public class InventoryMenuView extends View{
     }
 
     private void linen() {
-        System.out.println("\n*** linen() Called!!");
+        this.console.println("\n*** linen() Called!!");
     }
 
     private void blaket() {
-        System.out.println("\n*** blaket() Called!!");
+        this.console.println("\n*** blaket() Called!!");
     }
     
     private void serumStick() {
-        System.out.println("\n*** serumStick() Called!!");
+        this.console.println("\n*** serumStick() Called!!");
     }
     
     private void othersResources(){

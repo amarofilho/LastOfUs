@@ -31,7 +31,7 @@ public class StartProgramView {
     }
     
     private void displayBanner() {
-        System.out.println(
+        this.console.println(
         
             "\n**********************************************************************************"
         +    "\n                                                                                *"        
@@ -75,7 +75,7 @@ public class StartProgramView {
         boolean valid = false;
     try{    
         while (!valid){
-            System.out.println("\n "+ this.displayMessage);
+            this.console.println("\n "+ this.displayMessage);
             
                 value = this.keyboard.readLine();
                 value = value.trim();
@@ -87,31 +87,24 @@ public class StartProgramView {
             break;
         }
     }catch(Exception e){
-        System.out.println("You must enter a value!! "+ e.getMessage());
+        ErrorView.display(this.getClass().getName(),"You must enter a value!! "+ e.getMessage());
     }    
         return value;
     }
     private boolean doAction(String value) throws MapControlException {
-        /*if (value.length() < 2){
-            System.out.println("\nInvalid Players name: "+ "The name must be greater than 1 character");
-            return false;
-        }*/
+
             try{
                 Player player = GameControl.createPlayer(value);
                 this.displayNextView(player);
             }catch(MapControlException mce){
-                System.out.println(mce.getMessage());
+                ErrorView.display(this.getClass().getName(),mce.getMessage());
             }
-        /*if(player == null){
-            System.out.println("\n Error creating the player");
-            return false;
-        }*/
         
         return true;
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n=================================================="
+        this.console.println("\n=================================================="
                           +"\n Welcome to the game " + player.getName()
                           +"\n We hope you have a lot of fun!"
                           +"\n=================================================="

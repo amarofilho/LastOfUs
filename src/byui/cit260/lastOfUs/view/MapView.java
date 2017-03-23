@@ -57,28 +57,28 @@ public class MapView extends View{
                 this.moveNephi();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection, or you can't go that far*** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection, or you can't go that far*** Try again");
                 break;
         }
         return false;
     }
 
     void moveCedarCity() {
-        System.out.println("\n*** moveCedarCity() Called!!");
+        this.console.println("\n*** moveCedarCity() Called!!");
          
         
     }
 
     private void moveTwinFalls() {
-        System.out.println("\n*** moveTwinFalls() Called!!");
+        this.console.println("\n*** moveTwinFalls() Called!!");
     }
 
     private void moveFillmore() {
-        System.out.println("\n*** moveFillmore() Called!!");
+        this.console.println("\n*** moveFillmore() Called!!");
     }
 
     private void moveNephi() {
-        System.out.println("\n*** moveNephi() Called!!");
+        this.console.println("\n*** moveNephi() Called!!");
     }
     
 }

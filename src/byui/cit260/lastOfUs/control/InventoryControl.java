@@ -11,6 +11,8 @@ import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Inventory.Item;
 import byui.cit260.lastOfUs.model.Resources;
 import byui.cit260.lastOfUs.model.Resources.Choices;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import lastofusgame.LastOfUsGame;
 
 /**
@@ -18,6 +20,9 @@ import lastofusgame.LastOfUsGame;
  * @author Survivors of Brazil
  */
 public class InventoryControl {
+    
+    protected final BufferedReader keyboard = LastOfUsGame.getInFile();
+    protected final PrintWriter console = LastOfUsGame.getOutFile();
     
     public void calcBottlerOfWather(double consume)
                     throws InventoryControlExeptions{
@@ -43,9 +48,9 @@ public class InventoryControl {
         int index = 0;
         for (Item Item : itens) {
             index++;
-            System.out.println("####The index of "+Item.name()+" is "+Item.ordinal()+" ####");    
+            this.console.println("####The index of "+Item.name()+" is "+Item.ordinal()+" ####");    
         }
-        System.out.println("\n This array has "+ index+ " positions!!!");
+        this.console.println("\n This array has "+ index+ " positions!!!");
     }
     
     public void showArray() {
@@ -53,9 +58,9 @@ public class InventoryControl {
         int index = 0;
         for (Choices Choice : itens) {
             index++;
-            System.out.println("The index list of itens "+Choice.name()+" is "+Choice.ordinal()+"");    
+            this.console.println("The index list of itens "+Choice.name()+" is "+Choice.ordinal()+"");    
         }
-        System.out.println("\n This array has "+ index+ " options!!!");
+        this.console.println("\n This array has "+ index+ " options!!!");
     }
 }
 

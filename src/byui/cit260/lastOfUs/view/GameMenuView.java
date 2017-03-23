@@ -42,7 +42,7 @@ public class GameMenuView extends View {
             try {
                 this.findWayOut();
             } catch (Exception ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
                 break;
@@ -50,7 +50,7 @@ public class GameMenuView extends View {
                 this.healthCondition();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
                 break;
         }
         return false;
@@ -93,7 +93,7 @@ public class GameMenuView extends View {
     }
 
     private void healthCondition() {
-        System.out.println("*** healthCondition() function called ***");
+        this.console.println("*** healthCondition() function called ***");
     }
 
     private void displayMap() {
@@ -102,12 +102,12 @@ public class GameMenuView extends View {
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
         
-        System.out.println("\n      WEST OF USA MAP");
+        this.console.println("\n      WEST OF USA MAP");
         line = new StringBuilder("                                  ");
         line.insert(0, "1");
         line.insert(5, "2");
 
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for(int i=0; i < locations.length; i++){
             
@@ -115,7 +115,7 @@ public class GameMenuView extends View {
                 line.insert(0,locations[i][j]);
             }            
                
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }  
     
@@ -126,18 +126,20 @@ public class GameMenuView extends View {
         Game game = LastOfUsGame.getCurrentGame();
         Inventory[] inventoryItem = game.getInventory();
         
-        System.out.println("\n      LIST OF INVENTORY ITENS");
+        this.console.println("\n      LIST OF INVENTORY ITENS");
         line = new StringBuilder("                                  ");
         line.insert(0, "DESCRIPTION");
         line.insert(20, "IN STOCK");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for(Inventory item : inventoryItem){
             line = new StringBuilder("                                  ");
             line.insert(0,item.getDescription());
-            line.insert(20,item.getQuantityInStock());
-            
-            System.out.println(line.toString());
+            line.insert(25,item.getQuantityInStock());
+            if(item.getDescription()== null){
+                break;
+            }
+            this.console.println(line.toString());
         }
     }    
 }

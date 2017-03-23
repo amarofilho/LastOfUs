@@ -60,19 +60,19 @@ public class Escape {
     try{    
         while (!valid){
             
-                System.out.println("\n "+ this.banner); 
+                this.console.println("\n "+ this.banner); 
             
                 value = this.keyboard.readLine();
                 result = Integer.parseInt(value);
                         
             if(result <= 0 || isNaN(result)){
-                System.out.println("Number cannot be <= zero or you have not entered a number");
+                ErrorView.display(this.getClass().getName(),"Number cannot be <= zero or you have not entered a number");
                 continue;
             }
             break;
         }
     }catch(Exception e){
-        System.out.println("Error reading input: "+ e.getMessage());
+        ErrorView.display(this.getClass().getName(),"Error reading input: "+ e.getMessage());
     }       
         return result;
     }
@@ -83,14 +83,14 @@ public class Escape {
             MapControl mapControl = new MapControl();
             result = mapControl.displaycalcBuildingHeigh(userEntry);
         }catch(MapControlException me){
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(),me.getMessage());
         }    
         
         return result;
     }    
         
     private void displayNextView(double result) {
-        System.out.println("\n=================================================="
+        this.console.println("\n=================================================="
                           +"\n The Height of the building is " + result +" meters!!"
                           +"\n This must be the size of your rope!"
                           +"\n=================================================="

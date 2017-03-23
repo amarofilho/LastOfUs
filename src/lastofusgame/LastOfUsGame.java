@@ -84,8 +84,6 @@ public class LastOfUsGame {
     
     public static void main(String[] args) throws MapControlException {
         
-        StartProgramView startProgramView = new StartProgramView();
-        
         try{
             
             LastOfUsGame.inFile = new BufferedReader(new InputStreamReader(System.in));
@@ -94,13 +92,14 @@ public class LastOfUsGame {
             String filePath = "log.txt";
             LastOfUsGame.logFile = new PrintWriter(filePath);
             
+            StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
-            
-        }catch(MapControlException msg){
-            System.out.println(msg.getMessage());
-        }catch (Throwable te){
-            System.out.println(te.getMessage());
-            te.printStackTrace();
+            return;
+        }catch (Throwable e){
+            System.out.println("Exception: " +e.toString()+
+                               "\nCause: "+ e.getCause()+
+                               "\nMessage "+ e.getMessage());
+            e.printStackTrace();
         }finally{
             try {
                 if(LastOfUsGame.inFile != null)
@@ -115,7 +114,7 @@ public class LastOfUsGame {
             }
             
         }
-        startProgramView.displayStartProgramView();
+        
     }
     
     

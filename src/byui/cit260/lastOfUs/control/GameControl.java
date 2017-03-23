@@ -17,6 +17,7 @@ import byui.cit260.lastOfUs.model.Map;
 import byui.cit260.lastOfUs.model.Player;
 import byui.cit260.lastOfUs.model.Scene;
 import byui.cit260.lastOfUs.model.Scene.SceneType;
+import byui.cit260.lastOfUs.view.ErrorView;
 import byui.cit260.lastOfUs.view.GameMenuView;
 import lastofusgame.LastOfUsGame;
 
@@ -133,10 +134,10 @@ public class GameControl {
         try{
             GameControl.createNewGame(LastOfUsGame.getPlayer());
         }catch(MapControlException mce){
-            System.out.println(mce.getMessage());
+            ErrorView.display(this.getClass().getName(),mce.getMessage());
             return;
         }catch(Throwable te){
-            System.out.println(te.getMessage());
+            ErrorView.display(this.getClass().getName(),te.getMessage());
             te.printStackTrace();
             return;
         }    

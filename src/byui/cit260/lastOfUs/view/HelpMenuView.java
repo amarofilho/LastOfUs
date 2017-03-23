@@ -37,7 +37,7 @@ public class HelpMenuView extends View{
                 this.deliveringRecources();
                 break;    
             default:
-                System.out.println("\n*** Invalid Selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
                 break;
         }
         return false;
@@ -59,23 +59,23 @@ public class HelpMenuView extends View{
     }
 
     private void gameGoal() {
-        System.out.println("*** Gamegoal function called ***");
+        this.console.println("*** Gamegoal function called ***");
     }
 
     private void howMove() {
-        System.out.println("*** How to move function called ***");
+        this.console.println("*** How to move function called ***");
     }
 
     private void amoutResources() {
-        System.out.println("*** Estimating the amount of resources called ***");
+        this.console.println("*** Estimating the amount of resources called ***");
     }
 
     private void harvestingResources() {
-       System.out.println("*** harvesting Resources function called ***"); 
+       this.console.println("*** harvesting Resources function called ***"); 
     }
     
     private void deliveringRecources() {
-       System.out.println("*** Delivering resources to warehouse function called ***"); 
+       this.console.println("*** Delivering resources to warehouse function called ***"); 
     }
 
     

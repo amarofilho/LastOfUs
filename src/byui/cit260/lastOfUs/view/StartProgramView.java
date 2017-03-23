@@ -8,7 +8,10 @@ package byui.cit260.lastOfUs.view;
 import byui.cit260.lastOfUs.control.GameControl;
 import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import lastofusgame.LastOfUsGame;
 
 /**
  *
@@ -16,7 +19,10 @@ import java.util.Scanner;
  */
 public class StartProgramView {
     
-    private String displayMessage;
+    protected String displayMessage;
+    
+    protected final BufferedReader keyboard = LastOfUsGame.getInFile();
+    protected final PrintWriter console = LastOfUsGame.getOutFile();
     
     public StartProgramView(){
         this.displayMessage = "\n Please enter your name: ";
@@ -62,16 +68,16 @@ public class StartProgramView {
             
         }while (!done);
     }
-
+    
     private String getPlayersName() throws MapControlException{
-        Scanner keyboard = new Scanner(System.in);
+        
         String value = "";
         boolean valid = false;
-        
+    try{    
         while (!valid){
             System.out.println("\n "+ this.displayMessage);
             
-                value = keyboard.nextLine();
+                value = this.keyboard.readLine();
                 value = value.trim();
            
             if(value.isEmpty()){
@@ -80,6 +86,9 @@ public class StartProgramView {
             }
             break;
         }
+    }catch(Exception e){
+        System.out.println("You must enter a value!! "+ e.getMessage());
+    }    
         return value;
     }
     private boolean doAction(String value) throws MapControlException {

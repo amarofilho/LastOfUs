@@ -12,42 +12,6 @@ import java.util.Scanner;
  */
 public class MapView extends View{
     
-   // private String mapMenu;
-    
-   /* public void displayMapMenuView() {
-        boolean done = false;
-        do{
-            String mapMenuOption = this.GetMapOption();
-            if (mapMenuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(mapMenuOption);
-        } while (!done);
-    }*/
-    
-    /*private String GetMapOption(){
-        Scanner keyboard = new Scanner(System.in);
-        
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n "+ this.mapMenu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.isEmpty()){
-                System.out.println("\n Invalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-        
-        
-    }*/
-    
     public MapView() {
         
         super( "Please enter the 2 letters code to the city you wanna go:"

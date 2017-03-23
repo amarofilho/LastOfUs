@@ -15,41 +15,6 @@ import byui.cit260.lastOfUs.control.InventoryControl;
  */
 public class InventoryMenuView extends View{
   
-   // private String inventoryMenu;
-            
-    /*public void displayInventoryMenuView() {
-        boolean done = false;
-        do{
-            String inventoryMenuOption = this.getInventoryOption();
-            if (inventoryMenuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done = this.doAction(inventoryMenuOption);
-        } while (!done);
-    }
-    
-    private String getInventoryOption(){
-        Scanner keyboard = new Scanner(System.in);
-        
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n "+ this.inventoryMenu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.isEmpty()){
-                System.out.println("\n Invalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-        
-        
-    }*/
     @Override
     public boolean doAction(String choice) {
         

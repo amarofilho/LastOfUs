@@ -6,8 +6,11 @@
 package byui.cit260.lastOfUs.view;
 import byui.cit260.lastOfUs.control.InventoryControl;
 import byui.cit260.lastOfUs.exceptions.InventoryControlExeptions;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static java.lang.Double.isNaN;
 import java.util.Scanner;
+import lastofusgame.LastOfUsGame;
 
 /**
  *
@@ -21,7 +24,11 @@ import java.util.Scanner;
    //                       + "\n know the necessary amount of water!!");
 
 public class CalcWaterView {
-    private String infor;
+    
+    protected String infor;
+    
+    protected final BufferedReader keyboard = LastOfUsGame.getInFile();
+    protected final PrintWriter console = LastOfUsGame.getOutFile();
     
     public void displayCalcWaterView(){
         
@@ -44,27 +51,33 @@ public class CalcWaterView {
     }
     
         private double getUserInput(){
-            Scanner keyboard = new Scanner (System.in);
-            
-            double value = 0.0;
+                        
+            String value = null;
             boolean valid = false;
-            
+            double result = 0.0;
+        
+        try{    
             while (!valid){
                 System.out.println("\n"+ this.infor);
-                value = keyboard.nextDouble();
+                value = this.keyboard.readLine();
+                result = Double.parseDouble(value);
                 
-                if(value != 2.64){
+                if(result != 2.64){
                     System.out.println("\n Sorry! Calculate again");
                     continue;
                 }
-                if(isNaN(value)){
+                if(isNaN(result)){
                     System.out.println("\n Please insert only number");
                     continue;
                 }
                 break;
             }
-            return value;
+        }catch(Exception e){
+        System.out.println("Error reading input: "+ e.getMessage());
+        }    
+            return result;
         }
+        
      private double doAction(double userEntry){
          double result = 2.64;
          InventoryControl inventoryControl= new InventoryControl();

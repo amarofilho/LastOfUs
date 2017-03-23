@@ -44,15 +44,14 @@ public abstract class View implements ViewInterface  {
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        
+               
         boolean valid = false;
         String value = null;
-        
+    try{    
         while (!valid){
             System.out.println("\n "+ this.displayMessage);
             
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
             
             if(value.length()< 1){
@@ -60,8 +59,10 @@ public abstract class View implements ViewInterface  {
                 continue;
             }
             break;
-    
-}
-        return value;
+        }
+    }catch(Exception e){
+        System.out.println("Error reading input: "+ e.getMessage());
+    }    
+    return value;
 }
 }

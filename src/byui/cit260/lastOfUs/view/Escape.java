@@ -8,8 +8,11 @@ package byui.cit260.lastOfUs.view;
 import byui.cit260.lastOfUs.control.MapControl;
 import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static java.lang.Double.isNaN;
 import java.util.Scanner;
+import lastofusgame.LastOfUsGame;
 
 /**
  *
@@ -17,7 +20,10 @@ import java.util.Scanner;
  */
 public class Escape {
    
-    private String banner;
+    protected String banner;
+    
+    protected final BufferedReader keyboard = LastOfUsGame.getInFile();
+    protected final PrintWriter console = LastOfUsGame.getOutFile();
     
     public void displayEscape() throws MapControlException{
         
@@ -47,25 +53,28 @@ public class Escape {
         
     }
         private int getUserInput() throws MapControlException{
-            
-        Scanner keyboard = new Scanner(System.in);
         
-        int value = 0;
+        int result = 0;    
         boolean valid = false;
-        
+        String value = null;
+    try{    
         while (!valid){
             
                 System.out.println("\n "+ this.banner); 
             
-                value = keyboard.nextInt();
+                value = this.keyboard.readLine();
+                result = Integer.parseInt(value);
                         
-            if(value == 0 || isNaN(value)){
-                throw new MapControlException("Number cannot be <= zero or you have not entered a number");
+            if(result <= 0 || isNaN(result)){
+                System.out.println("Number cannot be <= zero or you have not entered a number");
+                continue;
             }
-            continue;
+            break;
         }
-        
-        return value;
+    }catch(Exception e){
+        System.out.println("Error reading input: "+ e.getMessage());
+    }       
+        return result;
     }
     private double doAction(int userEntry) throws MapControlException {
         

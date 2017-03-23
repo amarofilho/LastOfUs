@@ -19,6 +19,10 @@ import byui.cit260.lastOfUs.model.Scene;
 import byui.cit260.lastOfUs.model.Scene.SceneType;
 import byui.cit260.lastOfUs.view.ErrorView;
 import byui.cit260.lastOfUs.view.GameMenuView;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import lastofusgame.LastOfUsGame;
 
 /**
@@ -26,6 +30,35 @@ import lastofusgame.LastOfUsGame;
  * @author Família Haitmann
  */
 public class GameControl {
+
+    public static void saveGame(Game currentGame, String filePath)
+                        throws GameControlException{
+        
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame);
+        }catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        
+    }
+
+    public static void getSavedGame(String filePath)
+                        throws GameControlException{
+        
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject();
+        }
+        catch(Exception ex){
+            throw new GameControlException(ex.getMessage());
+        }
+        LastOfUsGame.setCurrentGame(game);
+    }
     
     private Player player;
     private Map map;

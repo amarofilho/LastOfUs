@@ -59,6 +59,20 @@ public class GameControl {
         }
         LastOfUsGame.setCurrentGame(game);
     }
+
+    public static void printInventory(Inventory[] inventoryItem, String filePath) 
+                            throws GameControlException{
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(inventoryItem);
+        }catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        System.out.println("\n###############################################"
+                         + "\n##Please check the file with your inventory!!##"
+                         + "\n###############################################");
+    }
     
     private Player player;
     private Map map;

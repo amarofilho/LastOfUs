@@ -6,11 +6,14 @@
 package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.GameControl;
+import byui.cit260.lastOfUs.exceptions.GameControlException;
 import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
 import byui.cit260.lastOfUs.model.Location;
 import byui.cit260.lastOfUs.model.Map;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -141,5 +144,19 @@ public class GameMenuView extends View {
             }
             this.console.println(line.toString());
         }
+              
+        this.console.println("\n\n*******************************************************"
+                           + "\nEnter the file path to also save the inventory in a file."
+                           + "\n********************** **********************************"); 
+        String filePath = this.getInput();
+       
+        try{
+           GameControl.printInventory(inventoryItem,filePath);
+        }catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
     }    
+
+
 }

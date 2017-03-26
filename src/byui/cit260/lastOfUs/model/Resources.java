@@ -27,7 +27,8 @@ public class Resources implements Serializable{
         backscene,
         
     }
-
+    
+    
     public Resources() {
     }
     
@@ -40,6 +41,8 @@ public class Resources implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+    
+    
 
     public Integer getType() {
         return type;

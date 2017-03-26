@@ -58,7 +58,7 @@ public class InventoryControl {
         int index = 0;
         for (Choices Choice : itens) {
             index++;
-            this.console.println("The index list of itens "+Choice.name()+" is "+Choice.ordinal()+"");    
+            this.console.println("Resource name: "+Choice.name()+" is at array nº "+Choice.ordinal()+"");    
         }
         this.console.println("\n This array has "+ index+ " options!!!");
     }

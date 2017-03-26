@@ -10,10 +10,12 @@ import byui.cit260.lastOfUs.exceptions.GameControlException;
 import byui.cit260.lastOfUs.exceptions.MapControlException;
 import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Inventory;
+import byui.cit260.lastOfUs.model.Resources;
 import byui.cit260.lastOfUs.model.Location;
 import byui.cit260.lastOfUs.model.Map;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +35,9 @@ public class GameMenuView extends View {
         switch (choice){
             case "M":
                 this.displayMap();
+                break;
+            case "L":
+                this.listResources();
                 break;
             case "I":
                 this.viewInventory();
@@ -78,6 +83,7 @@ public class GameMenuView extends View {
                   + "\n "
                   + "\n M - View Map"
                   + "\n I - View Inventory"
+                  + "\n L - Others Options"
                   + "\n R - Search for resources"
                   + "\n F - Find a way out of the room"
                   + "\n H - Check your Health Condition"
@@ -98,7 +104,55 @@ public class GameMenuView extends View {
     private void healthCondition() {
         this.console.println("*** healthCondition() function called ***");
     }
+    
+    
+    private void listResources() {
+        StringBuilder line;
+       
+        Game game = LastOfUsGame.getCurrentGame();
+        Resources[] resourcesItem = game.getResources();
+    
+        this.console.println("\n       LIST OF OPTIONS"
+             
+        
+                            +"\n                        ");
+        line = new StringBuilder("                                      ");
+        line.insert(0, "NAME");
+        line.insert(16, "DISPONIBILITY");
+        this.console.println(line.toString());
+                
+        for(Resources item : resourcesItem){
+            line = new StringBuilder("                                  ");
+            line.insert(0,item.getName());
+            line.insert(28,item.getType());
+            if(item.getName()== null){
+                break;
+            }
+            this.console.println(line.toString());
+            
+            
+            
+        }
+              
+        this.console.println("\n\n-------------------------------------------------------"
+        
+                           + "\nEnter the path where you want save the list."
+                           + "\nUse this example below: "
+                           + "\nC:\\Users\\Documents\\NetBeansProjects\\LastOfUs\\log.txt"
+                           + "\n--------------------------------------------------------"); 
+        String filePath = this.getInput();
+                          
+       
+        try{
+           GameControl.resourcesPrint(resourcesItem,filePath);
+        }catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
 
+    
+    
+    
     private void displayMap() {
         StringBuilder line;
         Game game = LastOfUsGame.getCurrentGame();
@@ -155,6 +209,7 @@ public class GameMenuView extends View {
         }catch(Exception ex){
             ErrorView.display("MainMenuView", ex.getMessage());
         }
+        
         
     }    
 

@@ -19,7 +19,17 @@ public class Game implements Serializable{
     private Map map;
    
     private Inventory[] inventoryItem;
+    private Resources[] resourcesItem;
+   
+    public Resources[] getResources() {
+        return resourcesItem;
+    }
 
+    public void setResources(Resources[] resources) {
+        this.resourcesItem = resources;
+    }
+    
+    
     public Map getMap() {
         return map;
     }

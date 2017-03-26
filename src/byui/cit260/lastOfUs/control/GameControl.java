@@ -73,6 +73,22 @@ public class GameControl {
                          + "\n##Please check the file with your inventory!!##"
                          + "\n###############################################");
     }
+    //my code start here!
+    public static void resourcesPrint(Resources[] resourcesItem, String filePath) 
+                            throws GameControlException{
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+        
+            output.writeObject(resourcesItem);
+        }catch (Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        System.out.println("\n------------------------------------------------"
+                         + "\n-Your Report has been printed!-"
+                         + "\n------------------------------------------------");
+    }
+    
+    //My code finish here!
     
     private Player player;
     private Map map;
@@ -102,6 +118,9 @@ public class GameControl {
         
         Inventory[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
+        
+        Resources[] resourcesList = GameControl.createResourceList();
+        game.setResources(resourcesList);
         
         Map map = MapControl.createMap();
         game.setMap(map);
@@ -143,26 +162,26 @@ public class GameControl {
     
     private static Resources[] createResourceList() {
                
-        Resources[] resourceOption = new Resources[6];
-        
+        Resources[] resourcesItem = new Resources[3];
+        //resourceOption
         Resources useList = new Resources();
         useList.setName("Take an Inventory list");
         useList.setType(0);
-        resourceOption[Choices.useList.ordinal()] = useList;
+        resourcesItem[Choices.useList.ordinal()] = useList;
         
         Resources takeMap = new Resources();
         takeMap.setName("Take a Map");
         takeMap.setType(0);
-        resourceOption[Choices.takeMap.ordinal()] = takeMap;
+        resourcesItem[Choices.takeMap.ordinal()] = takeMap;
         
         Resources backscene = new Resources();
         takeMap.setName("Back to Last scene");
         takeMap.setType(0);
-        resourceOption[Choices.backscene.ordinal()] = backscene;
+        resourcesItem[Choices.backscene.ordinal()] = backscene;
         
         
         
-        return resourceOption;
+        return resourcesItem;
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {

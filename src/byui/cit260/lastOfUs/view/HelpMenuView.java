@@ -59,23 +59,40 @@ public class HelpMenuView extends View{
     }
 
     private void gameGoal() {
-        this.console.println("*** Gamegoal function called ***");
+        this.console.println(" The ultimate goal of the game is survive until reaching"
+                             +"\n the city of Rexburg,ID. During the journey the player"
+                             +"\n will be tested and make use of some resources as water,"
+                             +"\n rope and sometimes should fight against enemies.");
     }
 
     private void howMove() {
-        this.console.println("*** How to move function called ***");
+        this.console.println("All the moviment during the game must be made using"
+                             +"\n letter opitions and menus.");
     }
 
     private void amoutResources() {
-        this.console.println("*** Estimating the amount of resources called ***");
+        this.console.println("All the resources avaliable in the game are:"
+                             + "\n1 bottler of water."
+                             + "\n1 rope."
+                             + "\n1 medice kit."
+                             + "\n1 Scalpel." 
+                             + "\n1 Linen." 
+                             + "\n1 Blanket." 
+                             + "\n1 Serum Metal Stick."
+                             + "\n24 extras resources hidden in a game scene.");
     }
 
     private void harvestingResources() {
-       this.console.println("*** harvesting Resources function called ***"); 
+       this.console.println(" To get the avaliables Resources the player must, in"
+                            + "\n some cases, answer questions, while sometimes the"
+                            + "\n resources will be delivered After reaching"
+                            + "\n certain stages of the game."); 
     }
     
     private void deliveringRecources() {
-       this.console.println("*** Delivering resources to warehouse function called ***"); 
+       this.console.println("While some resources must be used immediately, others"
+                            + "\n resources can be added to the inventory and used"
+                            + "\n according to the user choice."); 
     }
 
     

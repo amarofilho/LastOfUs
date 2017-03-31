@@ -7,6 +7,8 @@ package byui.cit260.lastOfUs.view;
 
 import java.util.Scanner;
 import byui.cit260.lastOfUs.control.InventoryControl;
+import byui.cit260.lastOfUs.model.Inventory;
+import byui.cit260.lastOfUs.model.Inventory.Item;
 
 
 /**
@@ -79,15 +81,16 @@ public class InventoryMenuView extends View{
     }
 
     private void linen() {
-        this.console.println("\n*** linen() Called!!");
+        this.console.println("\n*** linen Added to inventory!!");
+        
     }
 
     private void blaket() {
-        this.console.println("\n*** blaket() Called!!");
+        this.console.println("\n*** blaket Added to inventory!!");
     }
     
     private void serumStick() {
-        this.console.println("\n*** serumStick() Called!!");
+        this.console.println("\n*** serumStick Added to inventory!!");
     }
     
     private void othersResources(){

@@ -4,7 +4,10 @@
  */
 package byui.cit260.lastOfUs.view;
 
+import byui.cit260.lastOfUs.model.Game;
+import byui.cit260.lastOfUs.model.Scene;
 import java.util.Scanner;
+import lastofusgame.LastOfUsGame;
 
 /**
  *
@@ -36,6 +39,7 @@ public class MapView extends View{
     + "*(SG)Saint George#_/                                                                   *************  \n  *"
     + "* ***************                                                                                     \n  *"
     + "\n*********************************************************************************************************"
+    + "\n PRESS Q TO RETURN ANYTIME                                                                          \n  *"
         );
     }
     @Override
@@ -53,32 +57,45 @@ public class MapView extends View{
             case "FM":
                 this.moveFillmore();
                 break;
-            case "NF":
+            case "NP":
                 this.moveNephi();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection, or you can't go that far*** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid option, You're already at this city"
+                                                                    + " or you can't go that far*** TRY AGAIN...");
                 break;
         }
         return false;
     }
 
     void moveCedarCity() {
-        this.console.println("\n*** moveCedarCity() Called!!");
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String cedarVity = scenes[2].getDescription();
+        this.console.println(cedarVity);
          
         
     }
 
     private void moveTwinFalls() {
-        this.console.println("\n*** moveTwinFalls() Called!!");
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String twinFalls = scenes[3].getDescription();
+        this.console.println(twinFalls);
     }
 
     private void moveFillmore() {
-        this.console.println("\n*** moveFillmore() Called!!");
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String fillmore = scenes[4].getDescription();
+        this.console.println(fillmore);
     }
 
     private void moveNephi() {
-        this.console.println("\n*** moveNephi() Called!!");
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String nephi = scenes[5].getDescription();
+        this.console.println(nephi);
     }
     
 }

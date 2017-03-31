@@ -7,12 +7,15 @@ package byui.cit260.lastOfUs.view;
 
 import byui.cit260.lastOfUs.control.MapControl;
 import byui.cit260.lastOfUs.exceptions.MapControlException;
+import byui.cit260.lastOfUs.model.Game;
 import byui.cit260.lastOfUs.model.Player;
+import byui.cit260.lastOfUs.model.Scene;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import static java.lang.Double.isNaN;
 import java.util.Scanner;
 import lastofusgame.LastOfUsGame;
+import static sun.net.www.http.HttpClient.New;
 
 /**
  *
@@ -90,14 +93,19 @@ public class Escape {
     }    
         
     private void displayNextView(double result) {
-        this.console.println("\n=================================================="
-                          +"\n The Height of the building is " + result +" meters!!"
-                          +"\n This must be the size of your rope!"
-                          +"\n=================================================="
-                          );
-        MapView mapView = new MapView();
-                
-        mapView.display(); 
+                this.console.println("\n=================================================="
+                          +"\n THE HEIGHT OF THE BUILDING IS " + result +" METERS!!"
+                          +"\n THIS MUST BE THE SIZE OF YOUR ROPE!"
+                          +"\n==================================================");
+              
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String outOfHospital = scenes[0].getDescription();
+        this.console.println(outOfHospital);
+        
+        Journey nextMove = new Journey();
+        nextMove.display();
+        
           
     }    
     

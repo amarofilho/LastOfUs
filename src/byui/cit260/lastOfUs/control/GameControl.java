@@ -122,15 +122,18 @@ public class GameControl {
         Resources[] resourcesList = GameControl.createResourceList();
         game.setResources(resourcesList);
         
+        Scene[] scenes = MapControl.createScenes();
+        game.setScenes(scenes);
+        
         Map map = MapControl.createMap();
         game.setMap(map);
         
-        MapControl.moveActorsToStartingLocation(map);
+        
     }
 
     private static Inventory[] createInventoryList() {
         
-        Inventory[] inventoryItem = new Inventory[14];
+        Inventory[] inventoryItem = new Inventory[5];
         
         Inventory waterBottle = new Inventory();
         waterBottle.setDescription("Bottle of Water");
@@ -143,18 +146,18 @@ public class GameControl {
         inventoryItem[Item.scalpel.ordinal()] = scalpel;
         
         Inventory linen = new Inventory();
-        scalpel.setDescription("Linen");
-        scalpel.setQuantityInStock(0);
+        linen.setDescription("Linen");
+        linen.setQuantityInStock(0);
         inventoryItem[Item.linen.ordinal()] = linen;
         
         Inventory blanket = new Inventory();
-        scalpel.setDescription("Blanket");
-        scalpel.setQuantityInStock(0);
+        blanket.setDescription("Blanket");
+        blanket.setQuantityInStock(0);
         inventoryItem[Item.blanket.ordinal()] = blanket;
 
         Inventory mStick = new Inventory();
-        scalpel.setDescription("Serum Metal Stick");
-        scalpel.setQuantityInStock(0);
+        mStick.setDescription("Serum Metal Stick");
+        mStick.setQuantityInStock(0);
         inventoryItem[Item.metalStick.ordinal()] = mStick;
         
         return inventoryItem;
@@ -162,7 +165,7 @@ public class GameControl {
     
     private static Resources[] createResourceList() {
                
-        Resources[] resourcesItem = new Resources[3];
+        Resources[] resourcesItem = new Resources[24];
         //resourceOption
         Resources useList = new Resources();
         useList.setName("Take an Inventory list");
@@ -170,15 +173,44 @@ public class GameControl {
         resourcesItem[Choices.useList.ordinal()] = useList;
         
         Resources takeMap = new Resources();
-        takeMap.setName("Take a Map");
+        takeMap.setName("Map");
         takeMap.setType(0);
         resourcesItem[Choices.takeMap.ordinal()] = takeMap;
         
-        Resources backscene = new Resources();
-        takeMap.setName("Back to Last scene");
-        takeMap.setType(0);
-        resourcesItem[Choices.backscene.ordinal()] = backscene;
+        Resources cerealBar = new Resources();
+        cerealBar.setName("Cereal Bar");
+        cerealBar.setType(0);
+        resourcesItem[Choices.cerealBar.ordinal()] = cerealBar;
         
+        Resources beefJerky = new Resources();
+        beefJerky.setName("Beef Jerky");
+        beefJerky.setType(0);
+        resourcesItem[Choices.beefJerky.ordinal()] = beefJerky;
+        
+        Resources chocolate = new Resources();
+        chocolate.setName("Chocolate");
+        chocolate.setType(0);
+        resourcesItem[Choices.chocolate.ordinal()] = chocolate;
+        
+        Resources antibiotics = new Resources();
+        antibiotics.setName("antibiotics");
+        antibiotics.setType(0);
+        resourcesItem[Choices.antibiotics.ordinal()] = antibiotics;
+        
+        Resources rifle = new Resources();
+        rifle.setName("rifle");
+        rifle.setType(0);
+        resourcesItem[Choices.rifle.ordinal()] = rifle;
+        
+        Resources machete = new Resources();
+        machete.setName("machete");
+        machete.setType(0);
+        resourcesItem[Choices.machete.ordinal()] = machete;
+        
+        Resources bicycle = new Resources();
+        bicycle.setName("bicycle");
+        bicycle.setType(0);
+        resourcesItem[Choices.bicycle.ordinal()] = bicycle;
         
         
         return resourcesItem;
@@ -189,26 +221,10 @@ public class GameControl {
             
             locations[0][0].setScene(scenes[SceneType.OutOfHospital.ordinal()]);
             locations[0][1].setScene(scenes[SceneType.wallmart.ordinal()]);
+            locations[0][2].setScene(scenes[SceneType.cedarCity.ordinal()]);
+            locations[0][3].setScene(scenes[SceneType.fillmore.ordinal()]);
+            locations[0][4].setScene(scenes[SceneType.nephi.ordinal()]);
+            locations[0][5].setScene(scenes[SceneType.twinFalls.ordinal()]);
             
-    }
-    
-     private void startNewGame() {
-        
-        player = new Player();
-        map = new Map();
-        location = new Location();
-        try{
-            GameControl.createNewGame(LastOfUsGame.getPlayer());
-        }catch(MapControlException mce){
-            ErrorView.display(this.getClass().getName(),mce.getMessage());
-            return;
-        }catch(Throwable te){
-            ErrorView.display(this.getClass().getName(),te.getMessage());
-            te.printStackTrace();
-            return;
-        }    
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.display();
-                
     }
 }

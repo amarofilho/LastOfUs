@@ -23,28 +23,29 @@ public class MapControl {
     
     protected final BufferedReader keyboard = LastOfUsGame.getInFile();
     protected final PrintWriter console = LastOfUsGame.getOutFile();
+    
     public static Map createMap() {
         
-        Map map = new Map(20, 20);
+        Map map = new Map(10, 10);
         
-
         Scene[] scenes = createScenes();
         
         GameControl.assignScenesToLocations(map, scenes);
         return map;        
     }
 
-    static void moveActorsToStartingLocation(Map map) {
-        System.out.println("moveActorsToStartingLocation function called!!!");
-    }
-
-    private static Scene[] createScenes() {
+    public static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
         
         Scene outOfHospital = new Scene();
         outOfHospital.setDescription("\n Good job!! you are now out of the Hospital,"
                 + "\n you have to watch your back because there are a lot of dangers"
-                + "\n outside. Choose your next move carefully so you don't get in trouble.");
+                + "\n outside. Choose your next move carefully so you don't get in trouble."
+                + "\n                                                                      "
+                + "\n                                                                      "
+                + "\n W - Go to Wallmart search for supplies                               "
+                + "\n M - Move to another City                                             "
+                + "\n                                                                      ");
         outOfHospital.setMapSymbol("HP");
         outOfHospital.setBlocked(false);
         scenes[SceneType.OutOfHospital.ordinal()] = outOfHospital;
@@ -52,10 +53,73 @@ public class MapControl {
         Scene wallmart = new Scene();
         wallmart.setDescription("\n Of course you are not the first one to think in go to"
                 + "\n wallmart and find some supplies, so there is not much things left,"
-                + "\n much for sure you can find find something usefull for your journey.");
-        wallmart.setMapSymbol("HP");
+                + "\n but for sure you can find find something usefull for your journey."
+                + "\n                                                                      "
+                + "\n                                                                      ");
+        wallmart.setMapSymbol("WM");
         wallmart.setBlocked(false);
         scenes[SceneType.wallmart.ordinal()] = wallmart;
+        
+        Scene cedarCity = new Scene();
+        cedarCity.setDescription("\n Now you have reached Cedar City, remember to be aways alert."
+                + "\n looks like you can see a red mark in a drugstore, it means that John has been there,"
+                + "\n Choose your next move."
+                + "\n                                                                      "
+                + "\n                                                                      "
+                + "\n L - Check the Drugstore and look for supplies                        "
+                + "\n F - Move to Fillmore City                                            "
+                + "\n E - Move to Ely City                                                 "
+                + "\n N - Move to Nephi City                                               "
+                + "\n T - Move to Twin Falls City                                          "
+                + "\n                                                                      ");
+        cedarCity.setMapSymbol("CC");
+        cedarCity.setBlocked(false);
+        scenes[SceneType.cedarCity.ordinal()] = cedarCity;
+        
+        Scene fillmore = new Scene();
+        fillmore.setDescription("\n In Fillmore you sudenly come across the Governor Boggs..."
+                + "\n He is an evil man an may represent a threat for you, but he didn't see you"
+                + "\n yet, so what do you do?                                                   "
+                + "\n                                                                           "
+                + "\n                                                                           "
+                + "\n K - Try to Kill Governor Bogg                                             "
+                + "\n N - Move to Nephi City without being seen                                 "
+                + "\n                                                                           ");
+        
+        fillmore.setMapSymbol("FM");
+        fillmore.setBlocked(false);
+        scenes[SceneType.fillmore.ordinal()] = fillmore;
+        
+        Scene nephi = new Scene();
+        nephi.setDescription("\n Here in Nephi is a good place for you to search for supplies..."
+                + "\n The problem is that many people may have thought the same, so be carefull"
+                + "\n as you scavenge, there are a lot of undead people on the streets very close "
+                + "\n to the best places to search, so what do you do?                            "
+                + "\n                                                                           "
+                + "\n                                                                           "
+                + "\n T - Take chances and scavenge anyway                                      "
+                + "\n P - Move to Payson City without being seen                                "
+                + "\n V - Move to Provo City without being seen                                 "
+                + "\n                                                                           ");
+        
+        nephi.setMapSymbol("NF");
+        nephi.setBlocked(false);
+        scenes[SceneType.nephi.ordinal()] = nephi;
+        
+        Scene twinFalls = new Scene();
+        twinFalls.setDescription("\n It was a long journey untill you arrive here in Twin Falls..."
+                + "\n Now you are running out of resources, you must find some food and water, and"
+                + "\n a secure place to spend the night. what of below places do you choose?    "
+                + "\n                                                                           "
+                + "\n                                                                           "
+                + "\n M - A Moseum                                                              "
+                + "\n C - A LDS Church                                                       "
+                + "\n S - A Mall                                                                "
+                + "\n                                                                           ");
+        
+        twinFalls.setMapSymbol("TF");
+        twinFalls.setBlocked(false);
+        scenes[SceneType.twinFalls.ordinal()] = twinFalls;
         
         return scenes;
     }

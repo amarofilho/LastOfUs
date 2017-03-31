@@ -25,7 +25,6 @@ public class Inventory implements Serializable{
         linen,
         blanket,
         metalStick,
-        
     }
     public Inventory() {
     }

@@ -19,6 +19,7 @@ public class Scene implements Serializable{
     private String description;
     private String mapSymbol;
 
+    
     public String getMapSymbol() {
         return mapSymbol;
     }
@@ -33,6 +34,17 @@ public class Scene implements Serializable{
     public enum SceneType{
         OutOfHospital,
         wallmart,
+        cedarCity,
+        fillmore,
+        nephi,
+        twinFalls,
+        ely,
+        Payson,
+        provo,
+        saltLakeCity,
+        pocatello,
+        idahoFalls,
+        rexburg,
                 
     }
 

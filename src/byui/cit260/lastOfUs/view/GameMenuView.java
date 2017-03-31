@@ -33,9 +33,9 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase();
         
         switch (choice){
-            case "M":
+           /* case "M":
                 this.displayMap();
-                break;
+                break;*/
             case "L":
                 this.listResources();
                 break;
@@ -53,9 +53,6 @@ public class GameMenuView extends View {
                 ErrorView.display(this.getClass().getName(),ex.getMessage());
             }
         }
-                break;
-            case "H":
-                this.healthCondition();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid Selection *** Try again");
@@ -81,12 +78,10 @@ public class GameMenuView extends View {
                   + "\n "
                   + "\n Choose on the below menu your next action"
                   + "\n "
-                  + "\n M - View Map"
-                  + "\n I - View Inventory"
-                  + "\n L - Others Options"
+                //  + "\n M - View Map"
+                //  + "\n I - View Inventory"
                   + "\n R - Search for resources"
                   + "\n F - Find a way out of the room"
-                  + "\n H - Check your Health Condition"
                   + "\n Q - Quit Game"
                   + "\n---------------------------------------------------------");
     }
@@ -101,11 +96,6 @@ public class GameMenuView extends View {
         escape.displayEscape();
     }
 
-    private void healthCondition() {
-        this.console.println("*** healthCondition() function called ***");
-    }
-    
-    
     private void listResources() {
         StringBuilder line;
        
@@ -149,11 +139,12 @@ public class GameMenuView extends View {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
-
     
-    
-    
-    private void displayMap() {
+   /* private void displayMap() {
+        
+        MapView mapView = new MapView();
+                
+        mapView.display();
         StringBuilder line;
         Game game = LastOfUsGame.getCurrentGame();
         Map map = game.getMap();
@@ -174,7 +165,7 @@ public class GameMenuView extends View {
                
             this.console.println(line.toString());
         }
-    }  
+    }  */
     
 
     private void viewInventory() {
@@ -190,13 +181,16 @@ public class GameMenuView extends View {
         this.console.println(line.toString());
         
         for(Inventory item : inventoryItem){
+                
             line = new StringBuilder("                                  ");
             line.insert(0,item.getDescription());
             line.insert(25,item.getQuantityInStock());
+            
             if(item.getDescription()== null){
                 break;
             }
             this.console.println(line.toString());
+            
         }
               
         this.console.println("\n\n*******************************************************"

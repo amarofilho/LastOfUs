@@ -20,7 +20,16 @@ public class Game implements Serializable{
    
     private Inventory[] inventoryItem;
     private Resources[] resourcesItem;
-   
+    private Scene[] scenes;
+
+    public Scene[] getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(Scene[] scenes) {
+        this.scenes = scenes;
+    }
+       
     public Resources[] getResources() {
         return resourcesItem;
     }
@@ -101,7 +110,8 @@ public class Game implements Serializable{
     }
 
     public void setPlayer(Player player) {
-        System.out.println("setPlayer function called!!!");
+        player.getName();
+        System.out.println(player.toString());
     }
 
     

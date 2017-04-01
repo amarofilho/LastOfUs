@@ -225,6 +225,7 @@ public class GameControl {
             locations[0][3].setScene(scenes[SceneType.fillmore.ordinal()]);
             locations[0][4].setScene(scenes[SceneType.nephi.ordinal()]);
             locations[0][5].setScene(scenes[SceneType.twinFalls.ordinal()]);
+            locations[0][6].setScene(scenes[SceneType.ely.ordinal()]);
             
     }
 }

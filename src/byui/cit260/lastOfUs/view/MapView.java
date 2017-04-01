@@ -60,6 +60,12 @@ public class MapView extends View{
             case "NP":
                 this.moveNephi();
                 break;
+            case "EL":
+                this.moveEly();
+                break;    
+            case "PY":
+                this.movePayson();
+                break;    
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid option, You're already at this city"
                                                                     + " or you can't go that far*** TRY AGAIN...");
@@ -98,4 +104,17 @@ public class MapView extends View{
         this.console.println(nephi);
     }
     
+    private void moveEly() {
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String ely = scenes[6].getDescription();
+        this.console.println(ely);
+    }
+    
+    private void movePayson() {
+        Game game = LastOfUsGame.getCurrentGame();
+        Scene[] scenes = game.getScenes();
+        String payson = scenes[7].getDescription();
+        this.console.println(payson);
+    }
 }

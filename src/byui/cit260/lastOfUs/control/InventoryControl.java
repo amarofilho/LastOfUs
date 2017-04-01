@@ -37,7 +37,7 @@ public class InventoryControl {
         }
         if (consume != 2.64){
             throw new InventoryControlExeptions(""+ consume+ " isn´t a number"
-                                                +" Please,insert only numbers");
+                                                +" Please,insert only numbers.");
         }
         
     
